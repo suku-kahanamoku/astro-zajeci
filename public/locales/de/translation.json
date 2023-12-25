@@ -1,0 +1,91 @@
+{
+    "$": {
+        "de": "de",
+        "base": {
+            "title": "Ligos | Solare Photovoltaikanlagen",
+            "description": "Erhalten Sie Ihre eigene schlüsselfertige Solar-Photovoltaikanlage. Effiziente und umweltfreundliche Energie für Häuser, Ferienhäuser, Garagen. Investieren Sie mit uns in die Zukunft!"
+        },
+        "page": {
+            "home": "Startseite",
+            "power": "Photovoltaikanlagen",
+            "engineer": "Elektroinstallationen",
+            "price": "Preis",
+            "gallery": "Bildergalerie",
+            "contact": "Kontakt"
+        },
+        "other": {
+            "intro_img": "Einführungsbild"
+        },
+        "intro": {
+            "title": "Solare PV-Anlagen",
+            "subtitle": "Wir bieten eine breite Palette von Produkten und Dienstleistungen im Bereich Solarenergie an. Unser Hauptziel ist es, die optimale technische Lösung für jeden Kunden zu finden.",
+            "btn": "KOSTENLOSE BERATUNG"
+        },
+        "about": {
+            "title": "Wir führen durch und bieten an",
+            "fve_key": "Bau von schlüsselfertigen Photovoltaikanlagen",
+            "work": "Elektroinstallationen",
+            "fve_revision": "Elektrische Revisionen für Photovoltaikanlagen",
+            "car": "Bau von Ladestationen für Elektrofahrzeuge"
+        },
+        "power": {
+            "title": "Die Verantwortung für die Umwelt liegt bei uns allen",
+            "no_co2": "Produziert kein CO2",
+            "no_radioactive": "Sendet keine Strahlung aus",
+            "30_years": "Lebensdauer etwa 30 Jahre",
+            "no_harm": "Unschädlich für Menschen, Tiere und Pflanzen",
+            "no_noise": "Erzeugt keinen Lärm",
+            "sunlight": "Verbraucht keine Energie außer Sonnenlicht",
+            "no_comment": "An dieser Stelle ist es unnötig zu erklären, wie Photovoltaik funktioniert, da Sie online viele Informationen dazu finden können.",
+            "save_money": "Das Einzige, was es wert ist zu erwähnen, ist, dass Photovoltaik (PV) Ihnen auch heute noch viel Geld sparen kann. Die anfängliche Investition ist höher, aber PV ist keine kurzfristige Lösung. Ihre Kinder werden es immer noch nutzen!"
+        },
+        "info": {
+            "history": "Wir beschäftigen uns seit 2009 mit dem Bau von Photovoltaikanlagen, als wir unsere erste Anlage errichtet haben.",
+            "legislation": "Derzeit wird die Gesetzgebung für den Bau von PV-Anlagen bis zu 10 kWp, bekannt als Mikroquellen auf Einfamilienhäusern, vereinfacht. Gemäß der neuen Gesetzgebung können Sie eine PV-Anlage bis zu 50 kWp auf Ihrem Gelände ohne Baugenehmigung errichten.",
+            "fve_key": "Wir bauen PV-Anlagen schlüsselfertig und kümmern uns um die Bearbeitung der Dokumentation.",
+            "off_grid": "Wir können auch PV-Anlagen auf abgelegenen Hütten oder Einrichtungen im OFF-GRID-Modus bauen, dh ohne Anschluss an das öffentliche Stromverteilungsnetz."
+        },
+        "engineer": {
+            "title": "Elektroinstallationen",
+            "work": "Elektroinstallationen",
+            "revision": "PV-Anlagenrevisionen",
+            "car": "Bau von intelligenten Ladestationen für Elektrofahrzeuge",
+            "fve_key": "Bau von Hybrid-PV-Anlagen schlüsselfertig mit Subventionsbearbeitung gemäß dem entsprechenden NZÚ-Programm. Wir kümmern uns um alle Dokumente (Projekt, Revision, Subvention und Anschluss der PV-Anlage an den Verteiler).",
+            "fve_watter": "Warmwasserbereitung aus PV-Anlagen gemäß dem NZÚ LIGHT-Programm - Photovoltaik für Senioren schlüsselfertig für nur 1 CZK",
+            "fve_build": "Änderung oder Bau eines neuen Strommessschaltkastens, der den Anschlussbedingungen des Verteilers entsprechen muss (eine der Bedingungen für den Anschluss der PV-Anlage an das Netz)"
+        },
+        "price": {
+            "title": "Für eine vorläufige Berechnung, wie viel Sie die Installation einer PV-Anlage kosten wird",
+            "backup": "Backup-Option",
+            "years": "Jährliche Produktion",
+            "basic": {
+                "title": "Basis",
+                "hybrid": "Hybrid-PV-Anlage 8 kWp",
+                "battery": "10,7 kWh Batterie",
+                "panels": "20 Paneele"
+            },
+            "standard": {
+                "title": "Standard",
+                "hybrid": "Hybrid-PV-Anlage bis zu 10 kWp",
+                "battery": "11,6 kWh Batterie",
+                "panels": "23 Paneele"
+            },
+            "premium": {
+                "title": "Premium",
+                "hybrid": "Hybrid-PV-Anlage bis zu 10 kWp",
+                "battery": "11,6 kWh Batterie",
+                "panels": "23 Paneele",
+                "charger": "EV-Ladegerät 11 kW",
+                "subprice": "499.000 - 200.000 - 15.000 (Ladegerät) - 10.000 (PV-Anlage + Ladegerät - Prämie für gemeinsame Einreichung)"
+            }
+        },
+        "gallery": {
+            "title": "Bildergalerie"
+        },
+        "contact": {
+            "title": "Kontakt",
+            "subtitle": "LIGOS SOLAR ENERGY GmbH",
+            "appointment": "Vereinbaren Sie einen kostenlosen Termin mit einem Spezialisten. Unsere Erfahrung und ausgezeichneten Kundenbewertungen garantieren Qualität."
+        }
+    }
+}

@@ -1,0 +1,10 @@
+---
+import { t } from 'i18next';
+
+import Layout from '@layouts/Layout.astro';
+import GalleryCmp from '@components/content/GalleryCmp.astro';
+---
+
+<Layout title={t('$.base.title')} description={t('$.base.description')}>
+	<GalleryCmp />
+</Layout>

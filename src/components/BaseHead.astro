@@ -1,0 +1,43 @@
+---
+import { SEO } from 'astro-seo';
+import { HeadHrefLangs } from 'astro-i18next/components';
+
+import '@styles/global.css';
+
+export interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const resolvedImageWithDomain = new URL('/logo.jpg', Astro.site).toString();
+---
+
+<head>
+	<meta charset='utf-8' />
+	<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+	<meta name='viewport' content='width=device-width' />
+	<meta name='generator' content='Prasentator' />
+	<HeadHrefLangs />
+
+	<SEO
+		title={title}
+		description={description}
+		canonical={canonicalURL}
+		openGraph={{
+			basic: {
+				url: canonicalURL,
+				type: 'website',
+				title: title,
+				image: resolvedImageWithDomain,
+			},
+			image: {
+				alt: title,
+			},
+		}}
+	/>
+
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' />
+</head>

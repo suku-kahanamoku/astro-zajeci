@@ -1,0 +1,57 @@
+---
+import { t } from 'i18next';
+
+import Container from '@components/layout/Container.astro';
+import PriceCard from '@components/content/PriceCard.astro';
+
+const pricing = [
+	{
+		name: t('$.price.basic.title'),
+		price: {
+			value: '350 Kč / osoba',
+		},
+		popular: false,
+		features: [
+			{ label: t('$.price.basic.drink'), icon: 'ph:wine-duotone' },
+			{ label: t('$.price.basic.food'), icon: 'icon-park-outline:bread' },
+			{ label: t('$.price.basic.time'), icon: 'ion:hourglass-outline' },
+		],
+	},
+	{
+		name: t('$.price.standard.title'),
+		price: {
+			value: '450 Kč / osoba',
+		},
+		popular: true,
+		features: [
+			{ label: t('$.price.standard.drink'), icon: 'ph:wine-duotone' },
+			{ label: t('$.price.standard.food'), icon: 'icon-park-outline:bread' },
+			{ label: t('$.price.standard.time'), icon: 'ion:hourglass-outline' },
+		],
+	},
+	{
+		name: t('$.price.premium.title'),
+		price: {
+			value: '650 Kč / osoba',
+		},
+		popular: false,
+		features: [
+			{ label: t('$.price.premium.drink'), icon: 'ph:wine-duotone' },
+			{ label: t('$.price.premium.food'), icon: 'icon-park-outline:bread' },
+			{ label: t('$.price.premium.time'), icon: 'ion:hourglass-outline' },
+		],
+	},
+];
+---
+
+<div id='taste'>
+	<Container class='py-12 md:py-16 border-b border-slate-200'>
+		<h2 class='text-4xl lg:text-5xl font-bold lg:tracking-tight xl:tracking-tighter text-center text-primary'>
+			{t('$.price.title')}
+		</h2>
+
+		<div class='grid md:grid-cols-3 gap-10 mx-auto max-w-screen-lg mt-12'>
+			{pricing.map((item) => <PriceCard item={item} />)}
+		</div>
+	</Container>
+</div>

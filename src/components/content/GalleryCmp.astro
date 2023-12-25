@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import { t } from 'i18next';
+
+import Container from '@components/layout/Container.astro';
+
+const images = await Astro.glob('../../assets/img/*.jpg');
+
+/* const fbImages = await getFbImages(); */
+
+async function getFbImages(): Promise<any[]> {
+	const pageId = '187361854456201';
+	const token =
+		'EAAOwlwiVRU8BOwflcEoC6gGjZBuziBj8pg2ranAbeRNYSMPfQQJHcrzJeZCVW6JSgeVgruLDuDclrkdzMl9zQsIPkMC7NEZAfBeyjyFtcL4eZCuNDnzijl9ZAfVRHlSdCpgDcDgnIt8IOsmPKCRNwKMpHNNXKJJfZA4xOMjrtHrsQ7We0PeZBivrKibVsbYQEAZD';
+	const fields = 'status_type%2Cpermalink_url%2Cto%7Bpicture%2Clink%7D%2Cstory%2Cicon%2Cmessage%2Cattachments';
+	const response = await fetch(
+		`https://graph.facebook.com/v18.0/${pageId}/feed?access_token=${token}&fields=${fields}&format=json`
+	);
+	const result = await response.json();
+	return result?.data
+		?.filter((item) => item.status_type === 'added_photos')
+		?.map((item) =>
+			item.attachments.data.map((attachment) =>
+				attachment.subattachments?.data?.map((subattachment) => subattachment?.media?.image)
+			)
+		)
+		?.flat(Infinity)
+		?.filter((item) => item);
+}
+---
+
+<Container class='py-8'>
+	<h2 class='text-4xl lg:text-5xl font-bold lg:tracking-tight xl:tracking-tighter text-center text-primary'>
+		{t('$.gallery.title')}
+	</h2>
+
+	<div id='gallery' class='d-flex grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10 items-center'>
+		<!-- {
+			fbImages.map((img) => (
+				<a
+					href={img.src}
+					data-pswp-width={img.width}
+					data-pswp-height={img.height}
+					target='_blank'
+					rel='noreferrer'
+					class='from-bottom flex border-2 border-[#D8DEE9] rounded-md overflow-hidden sm:max-h-60 shadow-sm hover:shadow-lg items-center align-middle justify-center justify-items-center'
+				>
+					<img src={img.src} alt={t('$.other.intro_img')} width='300' loading='lazy' />
+				</a>
+			))
+		} -->
+		{
+			images.map((img) => (
+				<a
+					href={img.default?.src}
+					data-pswp-width={img.default?.width}
+					data-pswp-height={img.default?.height}
+					target='_blank'
+					rel='noreferrer'
+					class='from-bottom flex border-2 border-[#D8DEE9] rounded-md overflow-hidden sm:max-h-60 shadow-sm hover:shadow-lg items-center align-middle justify-center justify-items-center'
+				>
+					<Image src={img.default} alt={t('$.other.intro_img')} width='300' loading='eager' format='webp' />
+				</a>
+			))
+		}
+	</div>
+</Container>
+
+<script>
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+	import 'photoswipe/style.css';
+
+	const lightbox = new PhotoSwipeLightbox({
+		gallery: '#gallery',
+		children: 'a',
+		pswpModule: () => import('photoswipe'),
+	});
+	lightbox.init();
+</script>
+
+<style scoped>
+	a {
+		transition: all 1s ease;
+		width: 100%;
+		height: 100%;
+	}
+
+	img {
+		object-fit: contain;
+	}
+</style>

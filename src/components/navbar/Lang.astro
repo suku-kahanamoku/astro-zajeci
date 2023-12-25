@@ -1,0 +1,66 @@
+---
+import i18next, { t } from 'i18next';
+import { localizePath } from 'astro-i18next';
+import ISO6991 from 'iso-639-1';
+import 'flag-icons/css/flag-icons.min.css';
+import { Dropdown as DropdownContainer, DropdownItems } from 'astro-navbar';
+
+interface languageMapping {
+	[localeCode: string]: string;
+}
+
+export interface Props {
+	showFlag?: boolean;
+	languageMapping?: languageMapping;
+	[x: string]: any;
+}
+
+const supportedLanguages = i18next.languages;
+const currentLanguage = i18next.language;
+
+const { pathname } = Astro.url;
+
+const { showFlag = false, languageMapping, ...attributes } = Astro.props;
+---
+
+<DropdownContainer {...attributes}>
+	<button class='flex items-center gap-1 w-full lg:w-auto lg:px-3 py-2 text-gray-600 hover:text-gray-900'>
+		<span class={'fi fi-' + t('$.' + currentLanguage)}></span>
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			fill='none'
+			viewBox='0 0 24 24'
+			stroke-width='3'
+			stroke='currentColor'
+			class='w-3 h-3 mt-0.5 group-open:rotate-180'
+		>
+			<path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'></path>
+		</svg>
+	</button>
+	<DropdownItems>
+		<div class:list={['absolute w-12 z-10']}>
+			<div class='px-3 py-2 bg-white rounded-md shadow border flex flex-col'>
+				{
+					supportedLanguages
+						.filter((lang: string) => lang !== currentLanguage)
+						.map((lang: string) => {
+							let value = localizePath(pathname, lang);
+
+							let nativeName = '';
+							if (languageMapping && languageMapping.hasOwnProperty(lang)) {
+								nativeName = languageMapping[lang];
+							} else {
+								nativeName = ISO6991.getNativeName(lang);
+							}
+
+							return (
+								<div>
+									<a href={value} class={'py-2 fi fi-' + t('$.' + lang)} />
+								</div>
+							);
+						})
+				}
+			</div>
+		</div>
+	</DropdownItems>
+</DropdownContainer>

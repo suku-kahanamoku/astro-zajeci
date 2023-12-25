@@ -1,0 +1,106 @@
+---
+import i18next from 'i18next';
+import { localizePath } from 'astro-i18next';
+
+import BaseHead from '@components/BaseHead.astro';
+import Footer from '@components/layout/Footer.astro';
+import Navbar from '@components/navbar/navbar.astro';
+import { changeLanguage } from '@utils/lang';
+
+export interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+changeLanguage(Astro.url.pathname);
+const root = localizePath('/');
+---
+
+<!doctype html>
+<html lang={i18next.language}>
+	<BaseHead title={title} description={description} />
+	<body>
+		<Navbar />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+
+		<script define:vars={{ root }}>
+			function animate() {
+				document.querySelectorAll('.from-left').forEach((el) => {
+					const bounding = el.getBoundingClientRect();
+					if (bounding.top < window.innerHeight) {
+						el?.classList.add('animate__animated', 'animate__fadeInLeft');
+					}
+				});
+				//
+				document.querySelectorAll('.from-right').forEach((el) => {
+					const bounding = el.getBoundingClientRect();
+					if (bounding.top < window.innerHeight) {
+						el?.classList.add('animate__animated', 'animate__fadeInRight');
+					}
+				});
+				//
+				document.querySelectorAll('.from-top').forEach((el) => {
+					const bounding = el.getBoundingClientRect();
+					if (bounding.top < window.innerHeight) {
+						el?.classList.add('animate__animated', 'animate__fadeInDown');
+					}
+				});
+				//
+				document.querySelectorAll('.from-bottom').forEach((el) => {
+					const bounding = el.getBoundingClientRect();
+					if (bounding.top < window.innerHeight) {
+						el?.classList.add('animate__animated', 'animate__fadeInUp');
+					}
+				});
+				//
+				document.querySelectorAll('.zoom-in').forEach((el) => {
+					const bounding = el.getBoundingClientRect();
+					if (bounding.top < window.innerHeight) {
+						el?.classList.add('animate__animated', 'animate__zoomIn');
+					}
+				});
+			}
+
+			function RTRIM(value, rmValue) {
+				if (value && typeof value === 'string') {
+					if (!rmValue) {
+						rmValue = ' ';
+					}
+					value = value.replace(new RegExp(`[${rmValue}]+$`), '');
+				}
+				return value;
+			}
+
+			function scroll(hash) {
+				if (hash) {
+					document.querySelector(hash)?.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start',
+					});
+				}
+			}
+
+			if ((RTRIM(location.pathname, '/') || '/') === root) {
+				document.querySelectorAll(`a[href^="${location.pathname}#"]`).forEach((anchor) => {
+					anchor.addEventListener('click', function (e) {
+						e.preventDefault();
+						const urlObj = new URL(this.getAttribute('href'), location.origin);
+						const hash = urlObj.hash;
+						scroll(hash);
+						history.replaceState(null, '', hash);
+					});
+				});
+			}
+
+			document.addEventListener('DOMContentLoaded', function () {
+				window.addEventListener('scroll', animate);
+				animate();
+				scroll(window.location.hash);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+{
+    "$": {
+        "en": "gb",
+        "base": {
+            "title": "Ligos | Solar photovoltaic power plants",
+            "description": "Get your own turnkey solar photovoltaic power plant. Efficient and eco-friendly energy for homes, cottages, garages. Invest in the future with us!"
+        },
+        "page": {
+            "home": "Home",
+            "power": "Photovoltaic power plants",
+            "engineer": "Electrical installation works",
+            "price": "Price",
+            "gallery": "Gallery",
+            "contact": "Contact"
+        },
+        "other": {
+            "intro_img": "Intro image"
+        },
+        "intro": {
+            "title": "Solar photovoltaic power plants",
+            "subtitle": "We offer a wide range of products and services in the field of solar energy. Our main goal is to find the optimal technical solution for each customer.",
+            "btn": "FREE CONSULTATION"
+        },
+        "about": {
+            "title": "We perform and provide",
+            "fve_key": "Construction of turnkey photovoltaic power plants",
+            "work": "Electrical installation works",
+            "fve_revision": "Electrical revisions for photovoltaic power plants",
+            "car": "Construction of charging stations for electric vehicles"
+        },
+        "power": {
+            "title": "Responsibility for the environment is on all of us",
+            "no_co2": "Does not produce CO2",
+            "no_radioactive": "Does not emit any radiation",
+            "30_years": "Approximately 30 years lifespan",
+            "no_harm": "Harmless to humans, animals, and plants",
+            "no_noise": "Produces no noise",
+            "sunlight": "Consumes no energy other than sunlight",
+            "no_comment": "At this point, it's unnecessary to describe how photovoltaics work, as you can find plenty of information online.",
+            "save_money": "The only thing worth mentioning is that even today, photovoltaics (PV) can save you a lot. The initial investment is higher, but PV is not a short-term solution. Your children will still be using it!"
+        },
+        "info": {
+            "history": "We have been involved in the construction of photovoltaic power plants since 2009 when we built our first power plant.",
+            "legislation": "Currently, legislation for the construction of PV systems up to 10 kWp, known as microsources on family houses, is being simplified. According to the new legislation, you can build a PV system up to 50 kWp on your premises without a building permit.",
+            "fve_key": "We build PV systems turnkey, including handling documentation.",
+            "off_grid": "We can also build PV systems on remote cottages or facilities in OFF-GRID mode, i.e., without connection to the public electrical distribution network."
+        },
+        "engineer": {
+            "title": "Electrical installation works",
+            "work": "Electrical installation works",
+            "revision": "PV system revisions",
+            "car": "Construction of smart charging stations for electric vehicles",
+            "fve_key": "Construction of hybrid PV systems turnkey with subsidy processing according to the relevant NZÚ program. We handle all documentation (project, revision, subsidy, and connection of PV system to the distributor).",
+            "fve_watter": "Water heating from PV systems according to the NZÚ LIGHT program - Photovoltaics for seniors turnkey for only 1 CZK",
+            "fve_build": "Modification or construction of a new electricity meter switchboard, which must comply with the connection conditions of the distributor (one of the conditions for connecting the PV system to the grid)"
+        },
+        "price": {
+            "title": "For a preliminary calculation of how much the installation of PV system will cost you",
+            "backup": "Backup option",
+            "years": "Annual production",
+            "basic": {
+                "title": "Basic",
+                "hybrid": "Hybrid PV system 8 kWp",
+                "battery": "10.7 kWh battery",
+                "panels": "20 panels"
+            },
+            "standard": {
+                "title": "Standard",
+                "hybrid": "Hybrid PV system up to 10 kWp",
+                "battery": "11.6 kWh battery",
+                "panels": "23 panels"
+            },
+            "premium": {
+                "title": "Premium",
+                "hybrid": "Hybrid PV system up to 10 kWp",
+                "battery": "11.6 kWh battery",
+                "panels": "23 panels",
+                "charger": "EV charger 11 kW",
+                "subprice": "499,000 - 200,000 - 15,000 (charger) - 10,000 (PV system + charger - premium for joint submission)"
+            }
+        },
+        "gallery": {
+            "title": "Gallery"
+        },
+        "contact": {
+            "title": "Contact",
+            "subtitle": "LIGOS SOLAR ENERGY Ltd.",
+            "appointment": "Get a free consultation with a specialist. Our experience and excellent customer ratings guarantee quality."
+        }
+    }
+}

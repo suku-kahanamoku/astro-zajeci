@@ -1,0 +1,66 @@
+{
+    "$": {
+        "cs": "cz",
+        "base": {
+            "title": "NOVÁ HORA | Zaječské vinařství",
+            "description": "Objevte lahodná moravská vína! Zajímavé odrůdy, precizní zpracování a nezapomenutelný chuťový zážitek. Neváhejte nás kontaktovat a dovolte nám přiblížit vám kousek moravské vinárenské vášně"
+        },
+        "page": {
+            "home": "Úvod",
+            "wine": "Vína",
+            "taste": "Degustace",
+            "gallery": "Fotogalerie",
+            "contact": "Kontakt"
+        },
+        "other": {
+            "intro_img": "Intro image"
+        },
+        "intro": {
+            "title": "NOVÁ HORA - Zaječské vinařství",
+            "subtitle": "Objevte lahodná moravská vína! Zajímavé odrůdy, precizní zpracování a nezapomenutelný chuťový zážitek. Neváhejte nás kontaktovat a dovolte nám přiblížit vám kousek moravské vinárenské vášně",
+            "btn": "CHCI VÍNO"
+        },
+        "about": {
+            "title": "Proč naše víno?",
+            "subtitle": "Vína zrozená v samém středu jižní Moravy ve Zaječí.",
+            "description": "Nesmírná vášeň pro víno a kouzlo Mikulovska mě vždy vodilo k naprostému sblížení s touto krajinou, odražené v každém doušku mého vína. Hrozny pěstované na vybraných vinicích v srdci Mikulovska dodávají našim vínům neopakovatelný terroir a jedinečnou chuťovou podmanivost."
+        },
+        "product": {
+            "title": "Nabídka vín",
+            "to_cart": "Do košíku"
+        },
+        "info": {
+            "history": "Moravská a česká vína získávají stále větší oblibu nejen u nás, ale taky ve světě. V České republice se pěstuje přes 50 odrůd. A to díky rozmanitosti a členitosti území. Každá oblast dodává jednotlivým odrůdám specifické vlastnosti, takže nejlepší víno si pro sebe vybere každý. Prozkoumejte kvalitní vína z Moravy a Čech a objevujte krásy skrze vinnou sklenku",
+            "history2": "Typový charakter vín je podobný vínům odrůdy Tramín červený, ale kořenitá plnost bývá nižší a naproti tomu acidita poněkud vyšší. Aciditu je každopádně nutné zachovat pro příjemné vyznění. Vína bývají obvykle zlatožluté barvy, ve vůni jsou aromatické látky Tramínu, tedy růží, doplněné o vanilkové tóny, chuť je plná, dlouhotrvající, jemnější harmonie než u Tramínu. Ve vůni a chuti můžeme hledat koření, muškát, vanilku, mandarinky."
+        },
+        "price": {
+            "title": "Degustace",
+            "basic": {
+                "title": "Základní",
+                "drink": "Ochutnávka 8 vzorků vín",
+                "food": "Degustační sousto, pečivo, voda",
+                "time": "Doba trvání cca 1,5 hodiny"
+            },
+            "standard": {
+                "title": "Plus size",
+                "drink": "Ochutnávka 10 vzorků vín",
+                "food": "Degustační sousto, pečivo, voda",
+                "time": "Doba trvání cca 2,5 hodiny"
+            },
+            "premium": {
+                "title": "All you can drink",
+                "drink": "Ochutnávka 12 vzorků vín",
+                "food": "Degustační sousto, pečivo, voda",
+                "time": "Doba trvání cca 5 hodiny"
+            }
+        },
+        "gallery": {
+            "title": "Fotogalerie"
+        },
+        "contact": {
+            "title": "Kontakt",
+            "subtitle": "NOVÁ HORA - Zaječské vinařství",
+            "appointment": "Neváhejte nám zavolat, rádi vám poradíme s výběrem nebo odpovíme na jakékoliv otázky ohledně našich vín."
+        }
+    }
+}

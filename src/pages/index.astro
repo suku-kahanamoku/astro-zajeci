@@ -1,0 +1,18 @@
+---
+import { t } from 'i18next';
+
+import Layout from '@layouts/Layout.astro';
+import Intro from '@components/content/Intro.astro';
+import Contact from '@components/content/Contact.astro';
+import About from '@components/content/About.astro';
+import Price from '@components/content/Price.astro';
+import Product from '@components/content/Product.astro';
+---
+
+<Layout title={t('$.base.title')} description={t('$.base.description')}>
+	<Intro />
+	<About />
+	<Product />
+	<Price />
+	<Contact />
+</Layout>
