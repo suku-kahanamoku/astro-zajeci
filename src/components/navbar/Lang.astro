@@ -1,6 +1,5 @@
 ---
 import i18next, { t } from 'i18next';
-import { localizePath } from 'astro-i18next';
 import ISO6991 from 'iso-639-1';
 import 'flag-icons/css/flag-icons.min.css';
 import { Dropdown as DropdownContainer, DropdownItems } from 'astro-navbar';
@@ -44,8 +43,6 @@ const { showFlag = false, languageMapping, ...attributes } = Astro.props;
 					supportedLanguages
 						.filter((lang: string) => lang !== currentLanguage)
 						.map((lang: string) => {
-							let value = localizePath(pathname, lang);
-
 							let nativeName = '';
 							if (languageMapping && languageMapping.hasOwnProperty(lang)) {
 								nativeName = languageMapping[lang];
@@ -55,7 +52,7 @@ const { showFlag = false, languageMapping, ...attributes } = Astro.props;
 
 							return (
 								<div>
-									<a href={value} class={'py-2 fi fi-' + t('$.' + lang)} />
+									<a href={pathname} class={'py-2 fi fi-' + t('$.' + lang)} />
 								</div>
 							);
 						})

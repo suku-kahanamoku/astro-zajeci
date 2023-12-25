@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon';
 import { t } from 'i18next';
-import { localizePath } from 'astro-i18next';
 
 import Container from '@components/layout/Container.astro';
 import MyLink from '@components/ui/MyLink.astro';
@@ -22,7 +21,7 @@ import IntroImage from 'assets/img/intro3.jpg';
 
 			<div class='mt-8 flex flex-col sm:flex-row gap-3'>
 				<MyLink
-					href={localizePath('/#wine')}
+					href="/#wine"
 					class='flex gap-1 items-center justify-center'
 					style='secondary'
 					rel='noopener'

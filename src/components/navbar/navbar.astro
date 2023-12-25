@@ -2,35 +2,34 @@
 import { Astronav, MenuItems, MenuIcon } from 'astro-navbar';
 import { Image } from 'astro:assets';
 import { t } from 'i18next';
-import { localizePath } from 'astro-i18next';
 
 import Container from '@components/layout/Container.astro';
 import Dropdown from '@components/navbar/dropdown.astro';
 import logoImage from 'assets/logo.svg';
 import Lang from './Lang.astro';
 
-const root = localizePath('/');
+const root = '/';
 
 const menuitems: any[] = [
 	{
 		title: t('$.page.home'),
-		path: localizePath('/#about'),
+		path: '/#about',
 	},
 	{
 		title: t('$.page.wine'),
-		path: localizePath('/#wine'),
+		path: '/#wine',
 	},
 	{
 		title: t('$.page.taste'),
-		path: localizePath('/#taste'),
+		path: '/#taste',
 	},
 	{
 		title: t('$.page.gallery'),
-		path: localizePath('/gallery'),
+		path: '/gallery',
 	},
 	{
 		title: t('$.page.contact'),
-		path: localizePath('/#contact'),
+		path: '/#contact',
 	},
 ];
 ---
