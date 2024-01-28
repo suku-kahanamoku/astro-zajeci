@@ -16,14 +16,14 @@
             "intro_img": "Intro image"
         },
         "intro": {
-            "title": "NOVÁ HORA - Zaječské vinařství",
-            "subtitle": "Objevte lahodná moravská vína! Zajímavé odrůdy, precizní zpracování a nezapomenutelný chuťový zážitek. Neváhejte nás kontaktovat a dovolte nám přiblížit vám kousek moravské vinárenské vášně",
+            "title": "Zaječské vinařství Nová hora",
+            "subtitle": "Objevte s námi lahodná moravská vína. Místní odrůdy, tradiční zpracování, nezapomenutelná vůně i chuť. Neváhejte nás kontaktovat a dovolte nám s vámi sdílet naši vášeň pro pěstování a výrobu vína.  ",
             "btn": "CHCI VÍNO"
         },
         "about": {
             "title": "Proč naše víno?",
-            "subtitle": "Vína zrozená v samém středu jižní Moravy ve Zaječí.",
-            "description": "Nesmírná vášeň pro víno a kouzlo Mikulovska mě vždy vodilo k naprostému sblížení s touto krajinou, odražené v každém doušku mého vína. Hrozny pěstované na vybraných vinicích v srdci Mikulovska dodávají našim vínům neopakovatelný terroir a jedinečnou chuťovou podmanivost."
+            "subtitle": "Tradiční vína zrozená na jihu Moravy.",
+            "description": "Vášeň pro víno a nadšení pro krásu jihomoravské krajiny a přírody nás dovedly do Zaječí. Postupem času měníme práci v kanceláři a v ordinaci za práci ve vinohradě a ve sklepě. Tuto vášeň a nadšení, úžas a krásu, únavu z práce i osvěžení po ní, předáváme dál v našich vínech."
         },
         "product": {
             "title": "Nabídka vín",
@@ -36,22 +36,22 @@
         "price": {
             "title": "Degustace",
             "basic": {
-                "title": "Základní",
-                "drink": "Ochutnávka 8 vzorků vín",
-                "food": "Degustační sousto, pečivo, voda",
-                "time": "Doba trvání cca 1,5 hodiny"
+                "title": "Basic",
+                "drink": "Ochutnávka 6 vzorků",
+                "food": "Pečivo, voda",
+                "time": "Doba trvání 1 hodina"
             },
             "standard": {
-                "title": "Plus size",
-                "drink": "Ochutnávka 10 vzorků vín",
-                "food": "Degustační sousto, pečivo, voda",
-                "time": "Doba trvání cca 2,5 hodiny"
+                "title": "Medium",
+                "drink": "Ochutnávka 10 vzorků",
+                "food": "Občerstvení, pečivo, voda",
+                "time": "Doba trvání 2 až 2 a 1,5 hodiny"
             },
             "premium": {
                 "title": "All you can drink",
-                "drink": "Ochutnávka 12 vzorků vín",
-                "food": "Degustační sousto, pečivo, voda",
-                "time": "Doba trvání cca 5 hodiny"
+                "drink": "Ochutnávka všech vzorků (min. 9 bílých, 4 růžové, 4 červené)",
+                "food": "Bohaté občerstvení, voda, nealko, pivo, cider, šláftruňk",
+                "time": "Doba trvání podle nálady, cca 5 hodin"
             }
         },
         "gallery": {
@@ -59,7 +59,7 @@
         },
         "contact": {
             "title": "Kontakt",
-            "subtitle": "NOVÁ HORA - Zaječské vinařství",
+            "subtitle": "Zaječské vinařství Nová hora",
             "appointment": "Neváhejte nám zavolat, rádi vám poradíme s výběrem nebo odpovíme na jakékoliv otázky ohledně našich vín."
         }
     }

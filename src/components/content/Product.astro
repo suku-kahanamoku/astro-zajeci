@@ -7,76 +7,34 @@ import Info from './Info.astro';
 
 const pricing = [
 	{
-		name: t('$.price.basic.title'),
-		price: {
-			value: '350 Kč / osoba',
-		},
-		popular: false,
-		features: [
-			{ label: t('$.price.basic.drink'), icon: 'ph:wine-duotone' },
-			{ label: t('$.price.basic.food'), icon: 'icon-park-outline:bread' },
-			{ label: t('$.price.basic.time'), icon: 'ion:hourglass-outline' },
-		],
+		name: 'Frankovka',
+		price: 170,
+		kind: 'Červené suché',
+		type: 'Moravské zemské víno',
 	},
 	{
-		name: t('$.price.standard.title'),
-		price: {
-			value: '450 Kč / osoba',
-		},
-		popular: true,
-		features: [
-			{ label: t('$.price.standard.drink'), icon: 'ph:wine-duotone' },
-			{ label: t('$.price.standard.food'), icon: 'icon-park-outline:bread' },
-			{ label: t('$.price.standard.time'), icon: 'ion:hourglass-outline' },
-		],
+		name: 'Rulandské modré',
+		price: 250,
+		kind: 'Červené suché',
+		type: 'Moravské zemské víno',
 	},
 	{
-		name: t('$.price.premium.title'),
-		price: {
-			value: '650 Kč / osoba',
-		},
-		popular: false,
-		features: [
-			{ label: t('$.price.premium.drink'), icon: 'ph:wine-duotone' },
-			{ label: t('$.price.premium.food'), icon: 'icon-park-outline:bread' },
-			{ label: t('$.price.premium.time'), icon: 'ion:hourglass-outline' },
-		],
+		name: 'Cabernet Moravia rosé',
+		price: 150,
+		kind: 'Růžové suché',
+		type: 'Moravské zemské víno',
 	},
 	{
-		name: t('$.price.basic.title'),
-		price: {
-			value: '350 Kč / osoba',
-		},
-		popular: false,
-		features: [
-			{ label: t('$.price.basic.drink'), icon: 'ph:wine-duotone' },
-			{ label: t('$.price.basic.food'), icon: 'icon-park-outline:bread' },
-			{ label: t('$.price.basic.time'), icon: 'ion:hourglass-outline' },
-		],
+		name: 'Müller-Thurgau',
+		price: 220,
+		kind: 'Bílé supolosuchéché',
+		type: 'Moravské zemské víno',
 	},
 	{
-		name: t('$.price.standard.title'),
-		price: {
-			value: '450 Kč / osoba',
-		},
-		popular: true,
-		features: [
-			{ label: t('$.price.standard.drink'), icon: 'ph:wine-duotone' },
-			{ label: t('$.price.standard.food'), icon: 'icon-park-outline:bread' },
-			{ label: t('$.price.standard.time'), icon: 'ion:hourglass-outline' },
-		],
-	},
-	{
-		name: t('$.price.premium.title'),
-		price: {
-			value: '650 Kč / osoba',
-		},
-		popular: false,
-		features: [
-			{ label: t('$.price.premium.drink'), icon: 'ph:wine-duotone' },
-			{ label: t('$.price.premium.food'), icon: 'icon-park-outline:bread' },
-			{ label: t('$.price.premium.time'), icon: 'ion:hourglass-outline' },
-		],
+		name: 'Rulandské bílé',
+		price: 200,
+		kind: 'Bílé suché',
+		type: 'Moravské zemské víno',
 	},
 ];
 ---
@@ -91,6 +49,6 @@ const pricing = [
 			{pricing.map((item) => <ProductCard item={item} />)}
 		</div>
 
-		<Info />
+		<!-- <Info /> -->
 	</Container>
 </div>
