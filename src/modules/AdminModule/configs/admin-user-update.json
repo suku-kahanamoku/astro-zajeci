@@ -1,0 +1,62 @@
+{
+  "syscode": "admin-user-update",
+  "restUrl": "/api/admin/user/${route.meta.id}",
+  "patchUrl": "/api/admin/user/${route.meta.id}",
+  "method": "PATCH",
+  "fields": [
+    {
+      "name": "email",
+      "type": "email",
+      "label": "$.user.email",
+      "placeholder": "$.user.placeholder.email",
+      "required": true
+    },
+    {
+      "name": "first_name",
+      "type": "text",
+      "label": "$.user.name",
+      "placeholder": "$.user.placeholder.name"
+    },
+    {
+      "name": "last_name",
+      "type": "text",
+      "label": "$.user.surname",
+      "placeholder": "$.user.placeholder.surname"
+    },
+    {
+      "name": "phone",
+      "type": "text",
+      "label": "$.user.phone",
+      "placeholder": "$.user.placeholder.phone"
+    },
+    {
+      "name": "role_id",
+      "type": "select",
+      "label": "$.user.role",
+      "restOptions": {
+        "url": "/api/admin/role?limit=100",
+        "label": "label",
+        "value": "id"
+      }
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "label": "$.user.status",
+      "options": [
+        {
+          "value": "active",
+          "label": "$.form.active"
+        },
+        {
+          "value": "inactive",
+          "label": "$.user.status_inactive"
+        },
+        {
+          "value": "banned",
+          "label": "$.user.status_banned"
+        }
+      ]
+    }
+  ]
+}

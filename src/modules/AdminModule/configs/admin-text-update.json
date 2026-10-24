@@ -1,0 +1,57 @@
+{
+  "syscode": "admin-text-update",
+  "restUrl": "/api/text/${route.meta.id}",
+  "patchUrl": "/api/admin/text/${route.meta.id}",
+  "method": "PATCH",
+  "fields": [
+    {
+      "name": "syscode",
+      "type": "text",
+      "label": "$.text.syscode",
+      "placeholder": "$.text.placeholder.syscode",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "text",
+      "label": "$.text.title",
+      "placeholder": "$.text.placeholder.title"
+    },
+    {
+      "name": "content",
+      "type": "textarea",
+      "label": "$.text.content",
+      "placeholder": "$.text.placeholder.content"
+    },
+    {
+      "name": "language",
+      "type": "select",
+      "label": "$.text.language",
+      "options": [
+        {
+          "label": "Čeština",
+          "value": "cs"
+        },
+        {
+          "label": "English",
+          "value": "en"
+        }
+      ]
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ]
+    }
+  ]
+}

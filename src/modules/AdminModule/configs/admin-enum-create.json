@@ -1,0 +1,54 @@
+{
+  "syscode": "admin-enum-create",
+  "postUrl": "/api/admin/enum",
+  "method": "POST",
+  "modelType": "enum",
+  "fields": [
+    {
+      "name": "type",
+      "type": "text",
+      "label": "$.enum.form.type",
+      "placeholder": "$.enum.placeholder.type",
+      "required": true
+    },
+    {
+      "name": "syscode",
+      "type": "text",
+      "label": "$.enum.form.syscode",
+      "placeholder": "$.enum.placeholder.syscode",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "text",
+      "label": "$.enum.form.label",
+      "placeholder": "$.enum.placeholder.label"
+    },
+    {
+      "name": "value",
+      "type": "text",
+      "label": "$.enum.form.value",
+      "placeholder": "$.enum.placeholder.value"
+    },
+    {
+      "name": "position",
+      "type": "number",
+      "label": "$.enum.form.position"
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ]
+    }
+  ]
+}

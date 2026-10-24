@@ -1,0 +1,77 @@
+{
+  "syscode": "admin-text-list",
+  "restUrl": "/api/text",
+  "deleteUrl": "/api/admin/text/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${syscode}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "syscode",
+      "label": "$.text.syscode",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "title",
+      "label": "$.text.title",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "language",
+      "label": "$.text.language",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

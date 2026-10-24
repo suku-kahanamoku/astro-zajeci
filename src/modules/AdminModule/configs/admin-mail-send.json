@@ -1,0 +1,20 @@
+{
+  "syscode": "admin-mail-send",
+  "postUrl": "/api/admin/mail/send",
+  "fields": [
+    {
+      "name": "to",
+      "type": "email",
+      "label": "$.mail.to",
+      "placeholder": "$.mail.placeholder.to",
+      "required": true
+    },
+    {
+      "name": "subject",
+      "type": "text",
+      "label": "$.mail.subject",
+      "placeholder": "$.mail.placeholder.subject",
+      "required": true
+    }
+  ]
+}

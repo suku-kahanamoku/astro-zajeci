@@ -1,0 +1,39 @@
+{
+  "syscode": "admin-vat-rate-create",
+  "postUrl": "/api/admin/enum",
+  "method": "POST",
+  "fields": [
+    {
+      "name": "type",
+      "type": "hidden",
+      "value": "vat_rate"
+    },
+    {
+      "name": "label",
+      "type": "text",
+      "label": "$.form.name",
+      "required": true
+    },
+    {
+      "name": "syscode",
+      "type": "text",
+      "label": "$.form.syscode",
+      "required": true
+    },
+    {
+      "name": "data.rate",
+      "type": "number",
+      "label": "$.vat_rate.form.rate",
+      "required": true
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        { "value": 1, "label": "$.form.yes" },
+        { "value": 0, "label": "$.form.no" }
+      ]
+    }
+  ]
+}

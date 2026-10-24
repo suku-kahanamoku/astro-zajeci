@@ -1,0 +1,69 @@
+{
+  "syscode": "admin-order-list",
+  "restUrl": "/api/admin/order",
+  "deleteUrl": "/api/admin/order/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${order_number}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "order_number",
+      "label": "$.order.order_number",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "label": "$.order.status",
+      "options": [
+        { "label": "$.order.status_pending", "value": "pending" },
+        { "label": "$.order.status_confirmed", "value": "confirmed" },
+        { "label": "$.order.status_processing", "value": "processing" },
+        { "label": "$.order.status_shipped", "value": "shipped" },
+        { "label": "$.order.status_delivered", "value": "delivered" },
+        { "label": "$.order.status_cancelled", "value": "cancelled" },
+        { "label": "$.order.status_refunded", "value": "refunded" }
+      ],
+      "operator": {
+        "value": "$eq",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "payment_method",
+      "label": "$.order.payment_type",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "total_amount",
+      "type": "number",
+      "label": "$.order.total_price",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

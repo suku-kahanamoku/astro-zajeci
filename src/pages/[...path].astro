@@ -1,0 +1,348 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Home from "../components/Home.astro";
+import AuthForm from "../modules/AuthModule/AuthForm";
+import { WineList, WineDetail } from "../modules/ShopModule/Wine";
+import Checkout from "../modules/ShopModule/Checkout";
+import Gallery from "../components/Gallery";
+import Terms from "../components/Terms";
+import AdminApp from "../components/AdminApp";
+import images from "../config/gallery.json";
+import SectionTitle from "../components/SectionTitle.astro";
+import {
+  adminConfig,
+  sections,
+  resolveConfigPath,
+} from "../modules/AdminModule/registry";
+import { operation } from "../server/operations";
+import { publicData } from "../server/providers";
+import { php } from "../server/php";
+import { publicUser } from "../server/session";
+import { HttpError } from "../server/errors";
+import { t } from "../modules/LangModule";
+import { itemId, fileUrl } from "../modules/CoreModule/objects";
+import { url, wineUrl, canonical, SITE_URL, isNoindex } from "../config/site";
+import { configQuery } from "../modules/CoreModule/query";
+import { isPageRoute, routePattern } from "../config/routes";
+import pageTitles from "../config/page-titles.json";
+import type { Envelope, FormConfig } from "../modules/CoreModule/types";
+const parts = Astro.url.pathname.split("/").filter(Boolean);
+const locale = parts[0] === "en" ? (parts.shift(), "en") : "cs";
+if (parts[0] === "cs")
+  return Astro.redirect("/" + parts.slice(1).join("/"), 301);
+const page = parts[0] || "home";
+const section = parts[1] || "dashboard";
+const mode =
+  page === "admin" && section === "profile"
+    ? "update"
+    : parts[2] === "create"
+      ? "create"
+      : parts[2]
+        ? "update"
+        : "list";
+const id =
+  mode === "update"
+    ? itemId(decodeURIComponent(parts[2] || "")) || undefined
+    : undefined;
+const privatePage = isNoindex("/" + parts.join("/"));
+let notFound = false;
+let error = "";
+if (Astro.url.searchParams.has("uploadError"))
+  error =
+    locale === "en"
+      ? "The wine was created, but some files could not be attached. Select them again below."
+      : "Víno bylo vytvořeno, ale některé soubory se nepodařilo přiložit. Vyberte je prosím znovu níže.";
+let data: Envelope = { success: true, data: [] };
+let config: FormConfig | undefined;
+let contact: any = null;
+let title = t("$.base.title", locale);
+let description = t("$.base.description", locale);
+let image = SITE_URL + "/img/intro.jpg";
+let canonicalPath = Astro.url.pathname;
+let schema: any;
+if (page === "admin") {
+  if (
+    parts.length > 3 ||
+    !["dashboard", "profile", ...sections.map(([name]) => name)].includes(
+      section,
+    ) ||
+    (parts[2] && mode === "update" && !id)
+  )
+    notFound = true;
+  title =
+    section === "profile"
+      ? t("$.profile.title", locale)
+      : t(
+          sections.find(([name]) => name === section)?.[1] || "$.admin.title",
+          locale,
+        );
+  config = adminConfig(section, mode);
+  if (!["dashboard", "mail"].includes(section) && !config) notFound = true;
+  if (section === "profile") {
+    config = adminConfig("profile", "update");
+    data = { success: true, data: Astro.locals.session?.user };
+    if (config)
+      config = {
+        ...config,
+        fields: config.fields.filter((field) => field.name !== "role_id"),
+      };
+  } else if (section === "mail") {
+    try {
+      data = await php("/mailer/list", { token: Astro.locals.session?.token });
+    } catch (err) {
+      error = (err as Error).message;
+    }
+  } else if (config?.restUrl && !notFound) {
+    try {
+      const endpoint = new URL(
+        resolveConfigPath(config.restUrl, id),
+        "http://internal.invalid",
+      );
+      if (mode === "list")
+        endpoint.search = configQuery(
+          config,
+          Astro.url.searchParams,
+          endpoint.searchParams,
+        ).toString();
+      const op = operation(endpoint.pathname.replace("/api/", ""), "GET");
+      if (!op) throw new HttpError(404, "Neplatná konfigurace.");
+      data = await php(op.path, {
+        token: Astro.locals.session?.token,
+        query: endpoint.searchParams,
+      });
+      // Filters are supplied identically to SSR and hydration.
+      config = {
+        ...config,
+        currentFilter: JSON.parse(endpoint.searchParams.get("q") || "{}"),
+        currentSort: JSON.parse(endpoint.searchParams.get("sort") || "[]"),
+      };
+    } catch (err) {
+      error = (err as Error).message;
+    }
+  }
+} else if (page === "wine" && parts.length <= 2) {
+  title = t("$.wine.title", locale);
+  try {
+    if (parts[1]) {
+      const wineId = itemId(decodeURIComponent(parts[1]));
+      if (!wineId) throw new HttpError(404, "Víno nebylo nalezeno.");
+      data = await publicData("/products/" + wineId);
+      title = data.data.name;
+      description = data.data.description || description;
+      image = data.data.files?.[0]?.path
+        ? SITE_URL + fileUrl(data.data.files[0].path)
+        : image;
+      canonicalPath = wineUrl(data.data, locale);
+      schema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: title,
+        description,
+        image,
+        url: canonical(canonicalPath),
+        sku: data.data.sku || String(data.data.id),
+        brand: { "@type": "Brand", name: "Víno ze Zaječí" },
+        offers: {
+          "@type": "Offer",
+          url: canonical(canonicalPath),
+          priceCurrency: "CZK",
+          price: Number(data.data.price_with_vat ?? data.data.price),
+          availability:
+            Number(data.data.stock_quantity) > 0
+              ? "https://schema.org/InStock"
+              : "https://schema.org/OutOfStock",
+          seller: { "@type": "Organization", name: "Víno ze Zaječí" },
+        },
+      };
+    } else {
+      data = await publicData("/products", {
+        limit: 20,
+        page: Math.max(1, Number(Astro.url.searchParams.get("page")) || 1),
+      });
+    }
+  } catch (err) {
+    if (err instanceof HttpError && err.status === 404) notFound = true;
+    else {
+      error = (err as Error).message;
+      Astro.response.status = 503;
+      Astro.response.headers.set("Retry-After", "60");
+    }
+  }
+} else if (
+  ["login", "signup", "forgot-password", "reset-password"].includes(page) &&
+  parts.length === 1
+)
+  title =
+    page === "reset-password"
+      ? locale === "en"
+        ? "Set a new password"
+        : "Nastavení nového hesla"
+      : t(
+          page === "forgot-password"
+            ? "$.forgot_password.title"
+            : "$." + page + ".title",
+          locale,
+        );
+else if (page === "gallery" && parts.length === 1)
+  title = t("$.navbar.gallery", locale);
+else if (page === "cashdesk" && parts.length === 1)
+  title = t("$.cashdesk.title", locale);
+else if (page === "cashdesk-completed" && parts.length === 1)
+  title = t("$.cashdesk_completed.title", locale);
+else if (page === "terms-conditions" && parts.length === 1) {
+  title = t("$.terms.title", locale);
+  try {
+    const response = await publicData("/enumerations", {
+      q: JSON.stringify({
+        type: { $eq: "contact" },
+        syscode: { $eq: "contact" },
+      }),
+      limit: 1,
+    });
+    contact = response.data?.[0]?.data;
+  } catch {}
+} else if (page === "gdpr" && parts.length === 1)
+  title = t("$.gdpr.title", locale);
+else if (page !== "home") notFound = true;
+notFound = notFound || !isPageRoute(parts);
+if (config) {
+  const key = (pageTitles as Record<string, string>)[routePattern(parts)];
+  config = { ...config, pageTitle: key ? t(key, locale) : title };
+  title = config.pageTitle;
+}
+if (notFound) {
+  Astro.response.status = 404;
+  title = locale === "en" ? "Page not found" : "Stránka nebyla nalezena";
+}
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  locale={locale}
+  noindex={privatePage || notFound || !!error}
+  image={image}
+  canonicalPath={canonicalPath}
+  schema={schema}
+  admin={page === "admin" && !notFound}
+>
+  {notFound ? (
+    <div class="max-w-7xl mx-auto px-5 py-20 text-center">
+      <h1 class="page-title">404 – {title}</h1>
+      <a href={url("/", locale)} class="btn">
+        {t("$.navbar.home", locale)}
+      </a>
+    </div>
+  ) : page === "home" ? (
+    <Home locale={locale} />
+  ) : page === "admin" ? (
+    <AdminApp
+      client:load
+      section={section}
+      mode={mode}
+      id={id}
+      config={config}
+      initial={data}
+      locale={locale}
+      user={publicUser(Astro.locals.session!.user)}
+      error={error}
+    />
+  ) : page === "wine" ? (
+    error ? (
+      <section class="max-w-7xl mx-auto px-5 py-12">
+        <h1 class="page-title">{title}</h1>
+        <p class="alert error" role="alert">
+          {error}
+        </p>
+      </section>
+    ) : parts[1] ? (
+      <WineDetail client:load wine={data.data} locale={locale} />
+    ) : (
+      <section class="max-w-7xl mx-auto px-5 pb-16">
+        <SectionTitle
+          title={title}
+          eyebrow={t("$.wine.eyebrow", locale)}
+          icon="ph:wine-duotone"
+          level={1}
+        />
+        <WineList client:load wines={data.data || []} locale={locale} />
+        {data.meta && data.meta.totalPages > 1 && (
+          <nav
+            class="flex items-center justify-center gap-6 mt-10"
+            aria-label="Stránkování"
+          >
+            {data.meta.page > 1 && (
+              <a
+                class="btn outline"
+                href={url("/wine", locale) + "?page=" + (data.meta.page - 1)}
+              >
+                ←
+              </a>
+            )}
+            <span>
+              {data.meta.page} / {data.meta.totalPages}
+            </span>
+            {data.meta.page < data.meta.totalPages && (
+              <a
+                class="btn outline"
+                href={url("/wine", locale) + "?page=" + (data.meta.page + 1)}
+              >
+                →
+              </a>
+            )}
+          </nav>
+        )}
+      </section>
+    )
+  ) : ["login", "signup", "forgot-password", "reset-password"].includes(
+      page,
+    ) ? (
+    <div class="px-5">
+      <AuthForm
+        client:load
+        mode={page}
+        locale={locale}
+        token={Astro.url.searchParams.get("token") || ""}
+      />
+    </div>
+  ) : page === "gallery" ? (
+    <section class="max-w-7xl mx-auto px-5 pb-10">
+      <h1 class="page-title">{title}</h1>
+      <Gallery client:load images={images} />
+    </section>
+  ) : page === "cashdesk" ? (
+    <Checkout
+      client:load
+      locale={locale}
+      user={Astro.locals.session?.user || null}
+    />
+  ) : page === "cashdesk-completed" ? (
+    <section class="max-w-7xl mx-auto px-5 pb-12">
+      <h1 class="page-title">{title}</h1>
+      <div class="panel max-w-lg mx-auto space-y-4">
+        <p>
+          {t("$.cashdesk_completed.order", locale, {
+            orderId: Astro.url.searchParams.get("orderId") || "",
+          }).replace(/<[^>]*>/g, "")}
+        </p>
+        <p>
+          {t("$.cashdesk_completed.send_to_email", locale, {
+            email: Astro.url.searchParams.get("email") || "",
+          }).replace(/<[^>]*>/g, "")}
+        </p>
+        <p>{t("$.cashdesk_completed.thank_you", locale)}</p>
+        <a class="btn" href={url("/wine", locale)}>
+          ← {t("$.btn.back_shopping", locale)}
+        </a>
+      </div>
+    </section>
+  ) : page === "terms-conditions" ? (
+    <div class="prose-content">
+      <Terms locale={locale} contact={contact} />
+    </div>
+  ) : page === "gdpr" ? (
+    <section class="max-w-7xl mx-auto px-5 py-10">
+      <h1 class="page-title">{title}</h1>
+    </section>
+  ) : null}
+</BaseLayout>

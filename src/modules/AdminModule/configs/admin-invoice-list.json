@@ -1,0 +1,88 @@
+{
+  "syscode": "admin-invoice-list",
+  "restUrl": "/api/admin/invoice",
+  "deleteUrl": "/api/admin/invoice/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${invoice_number}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "invoice_number",
+      "label": "$.invoice.invoice_number",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "order_number",
+      "label": "$.invoice.order_number",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "user.email",
+      "label": "$.form.user_email",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "label": "$.invoice.status",
+      "options": [
+        { "label": "$.status.draft", "value": "draft" },
+        { "label": "$.status.issued", "value": "issued" },
+        { "label": "$.status.paid", "value": "paid" },
+        { "label": "$.status.overdue", "value": "overdue" },
+        { "label": "$.status.cancelled", "value": "cancelled" },
+        { "label": "$.status.refunded", "value": "refunded" }
+      ],
+      "operator": {
+        "value": "$eq",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "total_price_all_with_vat",
+      "type": "number",
+      "label": "$.invoice.total_price_all_with_vat",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "issued_at",
+      "type": "text",
+      "label": "$.invoice.issued_at",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "due_at",
+      "type": "text",
+      "label": "$.invoice.due_at",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

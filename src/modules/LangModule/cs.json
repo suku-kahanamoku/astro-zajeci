@@ -1,0 +1,822 @@
+{
+  "$": {
+    "en": "Anglicky",
+    "cs": "cz",
+    "btn": {
+      "submit": "Odeslat",
+      "close": "Zavřit",
+      "cancel": "Zrušit",
+      "yes": "Ano",
+      "reset": "Resetovat",
+      "back": "Zpět",
+      "no": "Ne",
+      "filters": "Filtry",
+      "delete": "Smazat",
+      "logout": "Odhlásit",
+      "continue": "Pokračovat",
+      "continue_shopping": "Pokračovat v nákupu",
+      "to_order": "Přejit k objednávce",
+      "back_shopping": "Zpět do obchodu",
+      "complete_order": "Dokončit objednávku",
+      "free": "Zdarma",
+      "create": "Přidat",
+      "filter": "Filtrovat"
+    },
+    "message": {
+      "required": "Povinné",
+      "invalid_email": "Neplatný e-mail",
+      "invalid_url": "Neplatný formát URL",
+      "invalid_date": "Neplatný formát data",
+      "invalid_file": "Neplatný typ souboru ({type})",
+      "min_value": "Minimální hodnota je {min}",
+      "max_value": "Maximální hodnota je {max}",
+      "decimal_places": "Hodnota může mít maximálně {precision} desetinných míst",
+      "date_after": "Datum musí být po {minDate}",
+      "date_before": "Datum musí být před {maxDate}",
+      "min_length": "Musí obsahovat alespoň {minLength} znaků",
+      "max_length": "Může obsahovat maximálně {maxLength} znaků",
+      "bad_request": "Špatný požadavek",
+      "miss_fields": "Chybějící povinná pole",
+      "max_file": "Maximální velikost souboru je \"{size}\" MB",
+      "load_error": "Nelze načíst data.",
+      "post_error": "Nelze odeslat záznam.",
+      "patch_error": "Nelze upravit záznam.",
+      "delete_error": "Nelze smazat záznam \"{name}\".",
+      "not_found": "Nenalezen žádný záznam.",
+      "401_error": "Nedostatečné oprávnění.",
+      "403_error": "Nemáte oprávnění k provedení této akce.",
+      "403_post_error": "Nemáte oprávnění vytvovářet záznamy.",
+      "403_patch_error": "Nemáte oprávnění upravovat záznamy.",
+      "403_delete_error": "Nemáte oprávnění k odstranění \"{name}\".",
+      "default_error": "Nastala neočekávaná chyba u záznamu \"{name}\".",
+      "unauthorized": "Neoprávněný",
+      "incorrect_login": "Nesprávné přihlašovací údaje",
+      "user_exist": "Uživatel již existuje",
+      "user_not_exists": "Uživatel neexistuje",
+      "password_min": "Musí obsahovat alespoň {count} znaků",
+      "password_not_match": "Hesla se neshodují",
+      "invalid_zip": "Neplatné PSČ",
+      "delete_question": "Opravdu chcete smazat záznam: \"{name}\"?",
+      "delete_question_multi": "Opravdu chcete smazat {length} záznamů?",
+      "patch_success_msg": "Záznam byl úspěšně upraven",
+      "post_success_msg": "Záznam byl úspěšně vytvořen",
+      "no_ready_files": "Nejsou žádné připravené soubory.",
+      "upload_status_pending": "Připraveno",
+      "upload_status_uploading": "Nahrává se",
+      "upload_status_uploaded": "Nahráno",
+      "upload_status_error": "Chyba",
+      "ready_files": "Připravené soubory ({count})",
+      "existing_files": "Nahrané soubory"
+    },
+    "info": {
+      "created_item": "Nový záznam",
+      "modified_item": "Upravený záznam",
+      "copied": "Zkopírováno.",
+      "add_fields": "Přidat kolonky.",
+      "fix_field_col": "Propojit kolonky se sloupci.",
+      "page_stats": "Zobrazené záznamy {from}-{to} z {total}",
+      "remove_field": "Odebrat pole.",
+      "change_operator": "Změnit operátora.",
+      "history": "Moravská a česká vína získávají stále větší oblibu nejen u nás, ale taky ve světě. V České republice se pěstuje přes 50 odrůd. A to díky rozmanitosti a členitosti území. Každá oblast dodává jednotlivým odrůdám specifické vlastnosti, takže nejlepší víno si pro sebe vybere každý. Prozkoumejte kvalitní vína z Moravy a Čech a objevujte krásy skrze vinnou sklenku",
+      "history2": "Typový charakter vín je podobný vínům odrůdy Tramín červený, ale kořenitá plnost bývá nižší a naproti tomu acidita poněkud vyšší. Aciditu je každopádně nutné zachovat pro příjemné vyznění. Vína bývají obvykle zlatožluté barvy, ve vůni jsou aromatické látky Tramínu, tedy růží, doplněné o vanilkové tóny, chuť je plná, dlouhotrvající, jemnější harmonie než u Tramínu. Ve vůni a chuti můžeme hledat koření, muškát, vanilku, mandarinky."
+    },
+    "form": {
+      "email": "E-mail",
+      "password": "Heslo",
+      "select": "Vyberte...",
+      "select_date": "Vybrat datum",
+      "delete_success_msg": "Záznam byl úspěšně smazán.",
+      "msg": "Zpráva",
+      "price": "Cena",
+      "old_price": "Původní cena",
+      "quantity": "Množství",
+      "quantity_stock": "Množství na skladě",
+      "description": "Popis",
+      "name": "Název",
+      "syscode": "Systémový kód",
+      "old_password": "Staré heslo",
+      "new_password": "Nové heslo",
+      "role": "Oprávnění",
+      "guest": "Host",
+      "user": "Uživatel",
+      "admin": "Administrátor",
+      "active": "Aktivní",
+      "published": "Publikováno",
+      "deleted": "Smazáno",
+      "yes": "Ano",
+      "no": "Ne",
+      "detail": "Detail",
+      "files": "Soubory",
+      "files_will_upload_after_create": "Vyberte soubory k nahrání. Budou přiloženy po vytvoření záznamu.",
+      "given_name": "Křestní jméno",
+      "surname": "Příjmeni",
+      "street": "Ulice",
+      "city": "Město",
+      "zip": "PSČ",
+      "state": "Stát",
+      "phone": "Telefon",
+      "total": "Celková cena",
+      "price_without_vat": "Cena bez DPH",
+      "vat": "DPH",
+      "price_with_vat": "Cena s DPH",
+      "currency": "Měna",
+      "value": "Hodnota",
+      "icon": "Ikona",
+      "help": "Nápověda",
+      "disabled": "Zakázáno",
+      "position": "Pořadí"
+    },
+    "query": {
+      "not_saved_changes": "Vaše změny nebyly uloženy. Opravdu chcete opustit stránku?"
+    },
+    "operator": {
+      "tooltip": {
+        "$eq": "Rovná se",
+        "$ne": "Nerovná se",
+        "$regex": "Obsahuje daný text",
+        "$start": "Začíná na",
+        "$gt": "Větší než",
+        "$gte": "Větší než nebo rovná se",
+        "$lt": "Menší než",
+        "$lte": "Menší než nebo rovná se",
+        "$in": "Obsahuje alespoň 1 záznam z daného pole",
+        "$nin": "Neobsahuje žádný záznam z daného pole",
+        "$all": "Vše existuje",
+        "$null": "Je prázdné",
+        "$not_null": "Je vyplněné",
+        "$range": "Je v rozmezí"
+      }
+    },
+    "login": {
+      "title": "Přihlaste se do svého účtu",
+      "description": "Login description",
+      "keywords": "Login keywords",
+      "label": "Přihlásit",
+      "remember": "Pamatuj si mě",
+      "signin": "Přihlásit se",
+      "no_account": "Ještě nemáte účet?",
+      "or": "nebo"
+    },
+    "signup": {
+      "title": "Vytvořit účet",
+      "description": "Signup description",
+      "keywords": "Signup keywords",
+      "label": "Registrovat",
+      "confirm_password": "Potvrdit heslo",
+      "accept_condition": "Souhlasím s",
+      "has_account": "Již máte účet?"
+    },
+    "forgot_password": {
+      "title": "Zapomněli jste heslo?",
+      "description": "Nemějte obavy! Stačí zadat svůj e-mail a my vám pošleme kód k resetování hesla!",
+      "keywords": "Zapomenute heslo keywords",
+      "reset_password": "Obnovit heslo",
+      "success_msg": "E-mail pro reset hesla byl odeslán."
+    },
+    "terms_conditions": {
+      "title": "Podmínky použití",
+      "description": "Podmínky použití description",
+      "keywords": "Podmínky použití keywords"
+    },
+    "profile": {
+      "title": "Upravit profil",
+      "description": "Profile description",
+      "keywords": "Profile keywords",
+      "newsletter": "Odesílání týdenních zpráv s novinkami",
+      "change_password": "Změnit heslo",
+      "success_msg": "Uživatel byl úspěšně upraven",
+      "given_name": "Křestní jméno",
+      "surname": "Příjmeni",
+      "street": "Ulice",
+      "city": "Město",
+      "zip": "PSČ",
+      "state": "Stát",
+      "role": {
+        "title": "Oprávnění",
+        "guest": "Host",
+        "user": "Uživatel",
+        "admin": "Administrátor"
+      },
+      "placeholder": {
+        "name": "Jan Novák",
+        "given_name": "Jan",
+        "surname": "Novák",
+        "street": "Králová 12",
+        "city": "Brno",
+        "zip": "654 32",
+        "state": "Česká Republika"
+      }
+    },
+    "theme": {
+      "light": "Přepnout na světlý režim",
+      "dark": "Přepnout na tmavý režim"
+    },
+    "czk": "Kč",
+    "pcs": "Ks",
+    "base": {
+      "title": "NOVÁ HORA | Zaječské vinařství",
+      "description": "Objevte lahodná moravská vína! Zajímavé odrůdy, precizní zpracování a nezapomenutelný chuťový zážitek. Neváhejte nás kontaktovat a dovolte nám přiblížit vám kousek moravské vinárenské vášně",
+      "siteName": "Víno ze Zaječí"
+    },
+    "terms": {
+      "title": "Obchodní podmínky",
+      "intro": "1. Úvod",
+      "supplier_label": "Dodavatel",
+      "ordering": "2. Objednávka a kupní smlouva",
+      "supplier_obligations": "Předmět objednávky a závazky dodavatele",
+      "buyer_obligations": "Závazky odběratele",
+      "delivery": "3. Dodací podmínky",
+      "delivery_time": "Termín dodání zboží",
+      "shipping": "Doprava",
+      "payment": "4. Způsob úhrady",
+      "receipt_of_delivery": "Převzetí dodávky objednaného zboží",
+      "payment_methods_label": "Úhrada probíhá:",
+      "cancellation": "5. Odstoupení od kupní smlouvy",
+      "other": "6. Další ustanovení",
+      "complaints": "7. Reklamace",
+      "privacy": "8. Ochrana osobních údajů",
+      "satisfaction": "9. Spokojenost zákazníka",
+      "final": "10. Závěrečná ustanovení"
+    },
+    "navbar": {
+      "home": "Úvod",
+      "about": "O nás",
+      "wine": "Vína",
+      "taste": "Degustace",
+      "gallery": "Fotogalerie",
+      "contact": "Kontakt",
+      "login": "Přihlásit",
+      "signup": "Registrovat",
+      "logout": "Odhlásit",
+      "profile": "Profil uživatele"
+    },
+    "intro": {
+      "eyebrow": "",
+      "title": "Objevte s námi nejlepší vína z Moravy",
+      "subtitle": "",
+      "btn": "CHCI VÍNO",
+      "btn_tasting": "CHCI DEGUSTACI"
+    },
+    "about": {
+      "eyebrow": "Náš příběh",
+      "title": "Proč naše víno?",
+      "subtitle": "",
+      "description": "Vášeň pro víno a nadšení pro krásu jihomoravské krajiny a přírody nás dovedly do Zaječí. Postupem času měníme práci v kanceláři a v ordinaci za práci ve vinohradě a ve sklepě. Tuto vášeň a nadšení, úžas a krásu, únavu z práce i osvěžení po ní, předáváme dál v našich vínech."
+    },
+    "tasting": {
+      "eyebrow": "Zažijte nás naživo",
+      "title": "Degustace",
+      "show_all": "Více o degustacích",
+      "basic": {
+        "title": "Basic",
+        "drink": "Ochutnávka 6 vzorků",
+        "food": "Pečivo, voda",
+        "time": "Doba trvání 1 hodina"
+      },
+      "standard": {
+        "title": "Medium",
+        "drink": "Ochutnávka 10 vzorků",
+        "food": "Občerstvení, pečivo, voda",
+        "time": "Doba trvání 2 až 2,5 hodiny"
+      },
+      "premium": {
+        "title": "All you can drink",
+        "drink": "Ochutnávka všech vzorků (min. 9 bílých, 4 růžové, 4 červené)",
+        "food": "Bohaté občerstvení, voda, nealko, pivo, cider, šláftruňk",
+        "time": "Doba trvání podle nálady, max 5 hodin"
+      }
+    },
+    "gallery": {
+      "title": "Fotogalerie"
+    },
+    "contact": {
+      "eyebrow": "Napište nám",
+      "title": "Kontakt",
+      "subtitle": "Zaječské vinařství Nová hora",
+      "appointment": "Neváhejte nám zavolat, rádi vám poradíme s výběrem nebo odpovíme na jakékoliv otázky ohledně našich vín.",
+      "success_msg": "Vaše dotazy byly úspěšně odeslány. Děkujeme vám za váš zájem! Na vaše dotazy se pokusíme reagovat co nejrychleji.",
+      "error_msg": "Omlouváme se, ale nedošlo k odeslání formuláře. Prosím, zkontrolujte své spojení a zkuste to znovu později."
+    },
+    "eshop": {
+      "construction": {
+        "title": "Eshop je ve výstavbě",
+        "description": "Naše vína si můžete objednat telefonicky. Pracujeme na spuštění online obchodu, který vám přinese ještě lepší nákupní zážitek. Děkujeme za trpělivost!"
+      }
+    },
+    "admin": {
+      "title": "Dashboard",
+      "quick": {
+        "orders": "Objednávky",
+        "invoices": "Faktury",
+        "users": "Uživatelé",
+        "wines": "Vína",
+        "title": "Rychlý přehled",
+        "description": "Přehled posledních událostí a rychlé zkratky.",
+        "recent": {
+          "title": "Poslední objednávky"
+        }
+      },
+      "recent": {
+        "title": "Poslední aktivita"
+      },
+      "lang": "Jazyk",
+      "taste": {
+        "title": "Degustace",
+        "create_taste": "Přidat degustaci",
+        "form": {
+          "drink": "Nápoje",
+          "food": "Občerstvení",
+          "time": "Délka"
+        },
+        "placeholder": {
+          "name": "Zadejte název balíčku",
+          "drink": "Např. 6 vzorků vína",
+          "food": "Např. sýry a uzeniny",
+          "time": "Např. 2 hodiny"
+        }
+      },
+      "taste_detail": {
+        "title": "Detail degustace"
+      },
+      "category": {
+        "title": "Kategorie",
+        "create_category": "Vytvořit novou kategorii",
+        "update": {
+          "title": "Editace kategorie"
+        }
+      },
+      "enum": {
+        "title": "Enumerátory",
+        "create_enum": "Vytvořit nový enumerátor",
+        "enum_detail": {
+          "title": "Detail enumerátoru"
+        }
+      },
+      "payment": {
+        "title": "Platební metody",
+        "create_payment": "Nová platební metoda",
+        "update_payment": "Editace platební metody"
+      },
+      "shipping": {
+        "title": "Dopravní metody",
+        "create_shipping": "Nová dopravní metoda",
+        "update_shipping": "Editace dopravní metody"
+      },
+      "vat_rate": {
+        "title": "Sazby DPH",
+        "create_vat_rate": "Nová sazba DPH",
+        "info": "Vždy se používá nejnovější záznam. Chcete-li změnit sazbu DPH, vytvořte nový záznam."
+      },
+      "invoice": {
+        "title": "Faktury",
+        "update": {
+          "title": "Editace faktury"
+        },
+        "create": {
+          "title": "Nová faktura"
+        }
+      },
+      "mail": {
+        "title": "E-maily",
+        "send": "Odeslat e-mail",
+        "send_success": "E-mail byl úspěšně odeslán.",
+        "send_error": "Nepodařilo se odeslat e-mail."
+      },
+      "text": {
+        "title": "Texty",
+        "create_text": "Vytvořit nový text",
+        "update": {
+          "title": "Editace textu"
+        }
+      },
+      "user": {
+        "title": "Uživatelé",
+        "update": {
+          "title": "Editace uživatele"
+        }
+      },
+      "wine": {
+        "title": "Vína",
+        "create": {
+          "title": "Vytvořit nové víno"
+        },
+        "create_wine": "Vytvořit víno",
+        "update": {
+          "title": "Editace vína: \"{name}\""
+        }
+      },
+      "address": {
+        "title": "Adresy"
+      },
+      "order": {
+        "title": "Objednávky"
+      },
+      "role": {
+        "title": "Role"
+      }
+    },
+    "layout": {
+      "admin_online": "Administrace online",
+      "toggle_color_mode": "Přepnout barevný režim",
+      "cart": "Nákupní košík",
+      "vineyard_overview": "Vinařství pod kontrolou",
+      "vineyard_overview_description": "Spravujte vína, objednávky a zákazníky z jednoho místa."
+    },
+    "dashboard": {
+      "administrator": "administrátore",
+      "eyebrow": "Řídicí centrum vinařství",
+      "greeting": "Dobrý den, {name}.",
+      "description": "Mějte vína, objednávky a zákazníky přehledně na jednom místě.",
+      "new_wine": "Přidat víno",
+      "browse_orders": "Zobrazit objednávky",
+      "recent_activity": "Poslední aktivita",
+      "recent_orders": "Poslední objednávky",
+      "all_orders": "Všechny objednávky",
+      "no_orders": "Zatím zde nejsou žádné objednávky.",
+      "customer": "Zákazník",
+      "cellar": "Vinný sklep",
+      "latest_wines": "Nejnovější vína",
+      "no_wines": "Zatím zde nejsou žádná vína.",
+      "stock": "Skladem: {count} ks",
+      "title": "Dashboard"
+    },
+    "dropzone": {
+      "drag_files": "Přetáhněte soubory sem",
+      "or": "nebo",
+      "browse_files": "vyberte soubory",
+      "max_file_size": "Maximální velikost souboru: {size} MB",
+      "supported_formats": "Podporované formáty: {types}",
+      "wrong_type": "Soubor {name} má nepodporovaný formát. Povolené typy: {types}",
+      "wrong_size": "Soubor {name} překročil limit {size} MB."
+    },
+    "placeholder": {
+      "leave_comment": "Napište zprávu..."
+    },
+    "aria": {
+      "mode": "Tlačítko barevných motivu",
+      "hamburger": "Boční navigace",
+      "close": "Zavírací tlačítko",
+      "lang": "Jazyková mutace",
+      "delete": "Tlačítko pro smazání záznamu",
+      "delete_selected": "Tlačítko pro smazání vybraných záznamů",
+      "cart": "Košík"
+    },
+    "mailing": {
+      "contact_form": {
+        "subject": "Potvrzení přijetí vašeho e-mailu",
+        "addressed": "Vážený zákazníku",
+        "thank_you": "Děkujeme Vám za projevený zájem a odeslání zprávy.",
+        "message_received": "Vaše zpráva byla úspěšně doručena našemu týmu. Naše oddělení zákaznické podpory se na ni podívá co nejdříve a pokusíme se odpovědět do 24 hodin (během pracovních dnů).",
+        "further_questions": "Pokud máte nějaké další dotazy, neváhejte nás kontaktovat.",
+        "regards": "S pozdravem",
+        "team": "Vinařství Nová hora"
+      },
+      "signup": {
+        "subject": "Potvrzení registrace",
+        "thank_you": "Děkujeme Vám za registraci na naší platformě.",
+        "success_done": "Vaše registrace byla úspěšně dokončena a Váš účet byl aktivován.",
+        "further_questions": "Pokud máte jakékoli dotazy ohledně používání našich služeb nebo potřebujete pomoc, neváhejte nás kontaktovat. Jsme tu pro Vás."
+      },
+      "forgot_password": {
+        "subject": "Reset hesla",
+        "request_password": "Obdrželi jsme žádost o resetování hesla k vašemu účtu.",
+        "new_password": "Bylo vygenerováno nové heslo pro váš účet.",
+        "contact_us": "Pokud jste o nové heslo nežádal/a, kontaktujte nás okamžitě.",
+        "further_questions": "Pokud máte nějaké další otázky nebo potřebujete pomoc, neváhejte nás kontaktovat."
+      },
+      "order": {
+        "confirmed": {
+          "subject": "Objednávka {orderId}",
+          "thank_you": "Děkujeme Vám za projevený zájem. Vaše objednávka byla přijata.",
+          "invoice": "Posíláme Vám fakturu v příloze. Věnujte prosím chvilku překontrolování všech údajů. Pokud by cokoliv nesouhlasilo, stačí nás kontaktovat na emailové adrese",
+          "taste": "Věříme, že Vám naše víno bude chutnat a že si u nás příště zase vyberete."
+        }
+      }
+    },
+    "state": {
+      "cz": "Česká Republika",
+      "sk": "Slovensko"
+    },
+    "footer": {
+      "copyright": "Všechna práva vyhrazena",
+      "reserved": "Všechna práva vyhrazena",
+      "made_by": "Vytvořil",
+      "cookies": "Používáme soubory cookie, abychom zajistili optimální uživatelskou zkušenost a mohli měřit výkon webu. Pokračováním v používání těchto stránek předpokládáme, že s používáním cookies souhlasíte. Nastavení cookies však můžete kdykoli změnit prostřednictvím funkcí svého prohlížeče."
+    },
+    "category": {
+      "id": "ID",
+      "name": "Název",
+      "syscode": "Kód",
+      "description": "Popis",
+      "position": "Pořadí",
+      "parent": "Nadřazená kategorie",
+      "placeholder": {
+        "name": "Zadejte název kategorie",
+        "syscode": "Zadejte kód kategorie",
+        "description": "Zadejte popis kategorie",
+        "position": "Zadejte pořadí"
+      }
+    },
+    "vat_rate": {
+      "form": {
+        "rate": "Sazba DPH (%)"
+      }
+    },
+    "enum": {
+      "form": {
+        "type": "Typ",
+        "syscode": "Systémový kód",
+        "label": "Popisek",
+        "value": "Hodnota",
+        "position": "Pořadí"
+      },
+      "placeholder": {
+        "type": "Zadejte typ",
+        "syscode": "Zadejte systémový kód",
+        "label": "Zadejte popisek",
+        "value": "Zadejte hodnotu"
+      },
+      "item": {
+        "syscode": "Kód položky",
+        "name": "Název položky",
+        "description": "Popis položky",
+        "disabled": "Zakázáno",
+        "hidden": "Skryto",
+        "placeholder": {
+          "syscode": "Zadejte kód položky",
+          "name": "Zadejte název položky",
+          "description": "Zadejte popis položky"
+        }
+      }
+    },
+    "cashdesk": {
+      "title": "Pokladna",
+      "shipping_payment": "Doprava a platba",
+      "summary": "Shrnutí",
+      "anonymous": "Anonym",
+      "billing_address": "Fakturační adresa",
+      "shipping_address": "Dodací adresa"
+    },
+    "cashdesk_completed": {
+      "title": "Děkujeme za objednávku!",
+      "order": "Vaše objednávka č. {orderId} byla přijata.",
+      "send_to_email": "Potvrzení a další informace byly odeslány na e-mail {email}.",
+      "thank_you": "Věříme, že Vám naše víno bude chutnat a že si u nás příště zase vyberete."
+    },
+    "cart": {
+      "title": "Košík",
+      "added": "Přidáno do košíku: {name}",
+      "total": "V košíku je zboží celkem za",
+      "total_price": "Celkem k úhradě",
+      "empty": "Košík je prázdný",
+      "remove": "Opravdu chcete odstranit: \"{name}\" z košíku?",
+      "remove_from_cart": "Odebrat z košíku",
+      "added_to_cart": "Přidáno do košíku"
+    },
+    "shipping": {
+      "title": "Doprava",
+      "brno": "Brno město",
+      "free": "Doprava zdarma",
+      "ppl": "PPL",
+      "gls": "GLS",
+      "dpd": "DPD",
+      "post": "Česká pošta",
+      "zas": "Zásilkovna",
+      "dhl": "DHL",
+      "geis": "GEIS",
+      "messenger": "Messenger",
+      "address": "Doručovací adresa",
+      "brno_free": "Dovoz v rámci okresu Brno-město a Modřice je zdarma každý čtvrtek.",
+      "limit_free": "Při objednávce nad 2500 Kč je doprava zdarma.",
+      "third_day": "Doručení třetí den po odeslání nejpozději.",
+      "not_quaranteed": "Doručení nezaručuje."
+    },
+    "payment": {
+      "title": "Platba",
+      "bank": "Bankovním převodem",
+      "bank_transfer": "Bankovním převodem",
+      "card": "Platební kartou",
+      "paypal": "PAY PAL",
+      "gopay": "GO PAY",
+      "apple_pay": "APPLE PAY",
+      "google_pay": "GOOGLE PAY",
+      "cash": "Hotovost",
+      "account_num": "Číslo účtu",
+      "variable_sym": "Variabilní symbol",
+      "recipient_msg": "Zpráva pro příjemce"
+    },
+    "order": {
+      "title": "Objednávky",
+      "customer": "Zákazník",
+      "create_order": "Vytvořit objednávku",
+      "user_email": "Email uživatele",
+      "user_name": "Jméno uživatele",
+      "user_surname": "Příjmení uživatele",
+      "user_phone": "Telefon uživatele",
+      "total_price": "Celková cena",
+      "status": "Stav",
+      "shipping_type": "Typ dopravy",
+      "payment_type": "Typ platby",
+      "order_id": "ID objednávky",
+      "order_number": "Číslo objednávky",
+      "status_pending": "Čeká na zpracování",
+      "status_confirmed": "Potvrzená",
+      "status_processing": "Zpracovává se",
+      "status_shipped": "Odeslaná",
+      "status_delivered": "Doručená",
+      "status_cancelled": "Zrušená",
+      "status_refunded": "Vrácená"
+    },
+    "invoice": {
+      "title": "Faktura",
+      "ico": "IČO",
+      "dic": "DIČ",
+      "vat_exempt": "Neplátce DPH",
+      "customer": "Odběratel",
+      "order_number": "Číslo objednávky",
+      "invoice_number": "Číslo faktury",
+      "order_id": "ID objednávky",
+      "issued_at": "Datum vystavení",
+      "due_at": "Datum splatnosti",
+      "supplier": "Dodavatel",
+      "bank_account": "Bankovní účet",
+      "variable_symbol": "Variabilní symbol",
+      "payment_method": "Způsob platby",
+      "item": "Položka",
+      "price": "Cena bez DPH",
+      "price_with_vat": "Cena s DPH",
+      "total_price": "Celková cena bez DPH",
+      "total_price_with_vat": "Celková cena s DPH",
+      "total_price_all_with_vat": "Celkem s DPH (vč. dopravy)",
+      "currency": "Kč",
+      "status": "Stav"
+    },
+    "status": {
+      "draft": "Rozepsaná",
+      "issued": "Vystavená",
+      "paid": "Zaplacená",
+      "overdue": "Po splatnosti",
+      "cancelled": "Zrušená",
+      "refunded": "Refundovaná",
+      "pending": "Čeká na zpracování"
+    },
+    "mail": {
+      "template": "Šablona",
+      "to": "Příjemce",
+      "subject": "Předmět",
+      "placeholder": {
+        "to": "email{'@'}priklad.cz",
+        "subject": "Předmět e-mailu"
+      }
+    },
+    "text": {
+      "id": "ID",
+      "syscode": "Kód",
+      "title": "Nadpis",
+      "content": "Obsah",
+      "language": "Jazyk"
+    },
+    "user": {
+      "id": "ID",
+      "email": "E-mail",
+      "name": "Jméno",
+      "surname": "Příjmení",
+      "phone": "Telefon",
+      "role": "Role",
+      "status": "Stav",
+      "status_inactive": "Neaktivní",
+      "status_banned": "Zakázán"
+    },
+    "address": {
+      "type": "Typ",
+      "name": "Jméno",
+      "company": "Firma",
+      "street": "Ulice",
+      "city": "Město",
+      "zip": "PSČ",
+      "country": "Stát",
+      "is_default": "Výchozí",
+      "billing": "Fakturační",
+      "shipping": "Doručovací",
+      "admin": {
+        "title": "Adresy",
+        "update": {
+          "title": "Editace adresy"
+        },
+        "create": {
+          "title": "Nová adresa"
+        }
+      },
+      "placeholder": {
+        "name": "Jan Novák",
+        "company": "Firma s.r.o.",
+        "street": "Masarykova 10",
+        "city": "Brno",
+        "zip": "60200",
+        "country": "CZ"
+      }
+    },
+    "role": {
+      "name": "Název",
+      "label": "Popis",
+      "position": "Pořadí",
+      "admin": {
+        "title": "Role",
+        "update": {
+          "title": "Editace role"
+        },
+        "create": {
+          "title": "Nová role"
+        }
+      },
+      "placeholder": {
+        "name": "admin",
+        "label": "Administrátor",
+        "position": "0"
+      }
+    },
+    "wine": {
+      "eyebrow": "Naše vína",
+      "title": "Nabídka vín",
+      "show_all": "Zobrazit všechna vína",
+      "to_cart": "Do košíku",
+      "detail": {
+        "title": "Detail vína"
+      },
+      "form": {
+        "name": "Název vína",
+        "kind": "Druh",
+        "quality": "Přívlastek",
+        "color": "Barva",
+        "year": "Ročník",
+        "variant": "Odrůda",
+        "volume": "Objem",
+        "winery": "Vinařství",
+        "region": "Oblast",
+        "alcohol": "Alkohol",
+        "sku": "SKU",
+        "batch": "Šarže"
+      },
+      "placeholder": {
+        "name": "Sauvignon Blanc, výběr z hroznů",
+        "variant": "Tramín červený",
+        "region": "Moravská vinařská oblast"
+      },
+      "kind": {
+        "dry": "Suché",
+        "semi_dry": "Polosuché",
+        "sweet": "Sladké",
+        "semi_sweet": "Polosladké",
+        "extra_dry": "Extra suché",
+        "off_dry": "Lehce suché",
+        "medium_dry": "Středně suché",
+        "medium_sweet": "Středně sladké",
+        "very_sweet": "Velmi sladké",
+        "dessert": "Dezertní"
+      },
+      "color": {
+        "white": "Bílé",
+        "red": "Červené",
+        "rose": "Rosé"
+      },
+      "quality": {
+        "kabinett": "Kabinetní víno",
+        "late_harvest": "Pozdní sběr",
+        "selection_of_grapes": "Výběr z hroznů",
+        "selection_of_berries": "Výběr z bobulí",
+        "ice_wine": "Ledové víno",
+        "straw_wine": "Slámové víno",
+        "quality_wine": "Jakostní víno",
+        "archive_wine": "Archivní víno",
+        "table_wine": "Stolní víno"
+      },
+      "variety": {
+        "riesling": "Ryzlink rýnský",
+        "gruner_veltliner": "Veltlínské zelené",
+        "welschriesling": "Ryzlink vlašský",
+        "sauvignon_blanc": "Sauvignon blanc",
+        "pinot_gris": "Rulandské šedé",
+        "pinot_blanc": "Rulandské bílé",
+        "chardonnay": "Chardonnay",
+        "traminer": "Tramín červený",
+        "muscat": "Muškát moravský",
+        "mueller_thurgau": "Müller Thurgau",
+        "st_laurent": "Svatovavřinecké",
+        "pinot_noir": "Rulandské modré",
+        "zweigelt": "Zweigeltrebe",
+        "cabernet_sauvignon": "Cabernet Sauvignon",
+        "merlot": "Merlot",
+        "frankovka": "Frankovka",
+        "modry_portugal": "Modrý Portugal",
+        "other": "Jiná odrůda"
+      }
+    },
+    "gdpr": {
+      "title": "Ochrana osobních údajů"
+    },
+    "table": {
+      "empty": "Žádné záznamy",
+      "records": "záznamů"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "syscode": "wine-list",
+  "restUrl": "/api/wine",
+  "factory": {
+    "url": "${name}--$${id}"
+  },
+  "projection": [
+    "name",
+    "kind",
+    "data.quality",
+    "color",
+    "variant",
+    "data.volume",
+    "data.year",
+    "price",
+    "stock_quantity",
+    "data.winery",
+    "data.region",
+    "data.alcohol",
+    "files"
+  ],
+  "fields": [
+    {
+      "name": "variant",
+      "type": "text",
+      "label": "$.wine.form.variant",
+      "iconName": "i-heroicons-sparkles",
+      "iconColor": "text-green-500",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "data.year",
+      "type": "number",
+      "label": "$.wine.form.year",
+      "iconName": "i-heroicons-calendar",
+      "iconColor": "text-amber-500",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "data.quality",
+      "type": "text",
+      "label": "$.wine.form.quality",
+      "iconName": "i-heroicons-star",
+      "iconColor": "text-yellow-500",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "kind",
+      "type": "select",
+      "label": "$.wine.form.kind",
+      "iconName": "i-heroicons-tag",
+      "iconColor": "text-primary-500",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_kind\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "data.volume",
+      "type": "number",
+      "label": "$.wine.form.volume",
+      "iconName": "i-heroicons-beaker",
+      "iconColor": "text-blue-500",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "data.alcohol",
+      "type": "number",
+      "label": "$.wine.form.alcohol",
+      "iconName": "i-heroicons-fire",
+      "iconColor": "text-orange-500",
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

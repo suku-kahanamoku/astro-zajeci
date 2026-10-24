@@ -1,0 +1,7 @@
+{
+  "sources": {
+    "wines": "/api/wine?limit=5",
+    "orders": "/api/admin/order?limit=5",
+    "users": "/api/admin/user?limit=5"
+  }
+}

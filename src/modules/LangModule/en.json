@@ -1,0 +1,809 @@
+{
+  "$": {
+    "en": "English",
+    "cs": "cz",
+    "btn": {
+      "submit": "Submit",
+      "close": "Close",
+      "cancel": "cancel",
+      "yes": "Yes",
+      "reset": "Reset",
+      "back": "Back",
+      "no": "No",
+      "filters": "Filters",
+      "delete": "Delete",
+      "logout": "Logout",
+      "continue": "Continue",
+      "continue_shopping": "continue shopping",
+      "to_order": "To order",
+      "back_shopping": "Back to shop",
+      "complete_order": "Complete the order",
+      "free": "Gratis",
+      "create": "Add",
+      "filter": "Filter"
+    },
+    "message": {
+      "required": "Required",
+      "invalid_email": "Invalid email",
+      "invalid_url": "Invalid URL format",
+      "invalid_date": "Invalid date format",
+      "invalid_file": "Invalid file type ({type})",
+      "min_value": "Minimum value is {min}",
+      "max_value": "Maximum value is {max}",
+      "decimal_places": "Value must have at most {precision} decimal places",
+      "date_after": "Date must be after {minDate}",
+      "date_before": "Date must be before {maxDate}",
+      "min_length": "Must be at least {minLength} characters",
+      "max_length": "Must be at most {maxLength} characters",
+      "bad_request": "Bad request",
+      "miss_fields": "Missing required fields",
+      "max_file": "The maximum file size is \"{size}\" MB",
+      "load_error": "Can not load data.",
+      "post_error": "Can not create record.",
+      "patch_error": "Can not update record.",
+      "delete_error": "Can not delete \"{name}\".",
+      "not_found": "Not found",
+      "401_error": "You do not have the permission.",
+      "403_error": "You do not have permission to perform this action.",
+      "403_post_error": "You do not have permission to create a record.",
+      "403_patch_error": "You do not have permission to update a record.",
+      "403_delete_error": "You do not have permission to delete \"{name}\".",
+      "default_error": "An unexpected error occurred for record \"{name}\".",
+      "unauthorized": "Unauthorized",
+      "incorrect_login": "Incorrect login credentials",
+      "user_exist": "User already exist",
+      "user_not_exists": "User does not exist",
+      "password_min": "Must contain at least {count} characters",
+      "password_not_match": "Passwords must match",
+      "invalid_zip": "Invalid postal code",
+      "delete_question": "Do you realy want delete: \"{name}\"?",
+      "delete_question_multi": "Do you realy want delete {length} records?",
+      "patch_success_msg": "Record successfully edited",
+      "post_success_msg": "Record successfully created",
+      "no_ready_files": "No files are ready to upload.",
+      "upload_status_pending": "Pending",
+      "upload_status_uploading": "Uploading",
+      "upload_status_uploaded": "Uploaded",
+      "upload_status_error": "Error",
+      "ready_files": "Ready files ({count})",
+      "existing_files": "Uploaded files"
+    },
+    "info": {
+      "created_item": "Created record",
+      "modified_item": "Modified record",
+      "copied": "Copied to clipboard.",
+      "add_fields": "Add fields.",
+      "fix_field_col": "Connect fields with label columns.",
+      "page_stats": "Displayed records {from}-{to} from {total}",
+      "remove_field": "Remove field.",
+      "change_operator": "Change operator.",
+      "history": "Moravian and Czech wines are gaining increasing popularity not only here but also worldwide. In the Czech Republic, over 50 varieties are grown, thanks to the diversity and ruggedness of the terrain. Each region contributes specific characteristics to individual varieties, so everyone can choose the best wine for themselves. Explore quality wines from Moravia and Bohemia and discover the beauty through a wine glass.",
+      "history2": "The typical character of the wines is similar to Tramín Red variety wines, but the spicy fullness is usually lower, and on the contrary, the acidity is somewhat higher. However, it is necessary to maintain acidity for a pleasant finish. Wines are usually golden-yellow in color, with Tramín aromatic substances in the aroma, namely roses, complemented by vanilla tones; the taste is full, long-lasting, with a gentler harmony than Tramín. In aroma and taste, we can find spices, nutmeg, vanilla, tangerines."
+    },
+    "form": {
+      "email": "E-mail",
+      "password": "Password",
+      "select": "Select...",
+      "select_date": "Select date",
+      "delete_success_msg": "Record was successfully deleted.",
+      "msg": "Message",
+      "price": "Price",
+      "old_price": "Old price",
+      "quantity": "Quantity",
+      "quantity_stock": "Quantity in stock",
+      "description": "Description",
+      "name": "Name",
+      "syscode": "System code",
+      "old_password": "Old password",
+      "new_password": "New password",
+      "role": "Role",
+      "guest": "Guest",
+      "user": "User",
+      "admin": "Admin",
+      "active": "Active",
+      "published": "Published",
+      "deleted": "Deleted",
+      "yes": "Yes",
+      "no": "No",
+      "detail": "Detail",
+      "files": "Files",
+      "files_will_upload_after_create": "Select files to upload. They will be attached after the record is created.",
+      "given_name": "Given name",
+      "surname": "Family name",
+      "street": "Street",
+      "city": "City",
+      "zip": "Postal code",
+      "state": "State",
+      "phone": "Phone",
+      "total": "Total price",
+      "price_without_vat": "Price excl. VAT",
+      "vat": "VAT",
+      "price_with_vat": "Price incl. VAT"
+    },
+    "query": {
+      "not_saved_changes": "Your changes have not been saved. Do you really want leave the page?"
+    },
+    "operator": {
+      "tooltip": {
+        "$eq": "Is equal to",
+        "$ne": "Is not equal to",
+        "$regex": "Contains the character sequence",
+        "$start": "Starts with the character sequence",
+        "$gt": "Is greater than",
+        "$gte": "Is greater than or equal to",
+        "$lt": "Is less than",
+        "$lte": "Is less than or equal to",
+        "$in": "Includes checked values to the selection",
+        "$nin": "Excludes checked values from the selection",
+        "$all": "All exists",
+        "$null": "Does not contain the character sequence",
+        "$not_null": "Contains a value",
+        "$range": "Is in the range from-to"
+      }
+    },
+    "login": {
+      "title": "Log in to your account",
+      "description": "Login description",
+      "keywords": "Login keywords",
+      "label": "Log in",
+      "remember": "Remember me",
+      "signin": "Log in",
+      "no_account": "Don't have an account yet?",
+      "or": "OR"
+    },
+    "signup": {
+      "title": "Create account",
+      "description": "Signup description",
+      "keywords": "Signup keywords",
+      "label": "Sign up",
+      "confirm_password": "Confirm password",
+      "accept_condition": "I accept the",
+      "has_account": "Already have an account?"
+    },
+    "terms_conditions": {
+      "title": "Terms and Conditions",
+      "description": "Terms and Conditions description",
+      "keywords": "Terms and Conditions keywords"
+    },
+    "forgot_password": {
+      "title": "Forgot your password?",
+      "description": "Don't fret! Just type in your e-mail and we will send you a code to reset your password!",
+      "keywords": "Forgot password keywords",
+      "reset_password": "Reset password",
+      "success_msg": "Password reset e-mail has been sent."
+    },
+    "profile": {
+      "title": "Edit Profile",
+      "description": "Profile description",
+      "keywords": "Profile keywords",
+      "newsletter": "Sending weekly news updates",
+      "change_password": "Change Password",
+      "success_msg": "User successfully edited",
+      "given_name": "Given name",
+      "surname": "Family name",
+      "street": "Street",
+      "city": "City",
+      "zip": "Postal code",
+      "state": "State",
+      "role": {
+        "title": "Permission",
+        "guest": "Guest",
+        "user": "User",
+        "admin": "Admin"
+      },
+      "placeholder": {
+        "name": "John Doe",
+        "given_name": "John",
+        "surname": "Doe",
+        "street": "Blvd Ave. 12",
+        "city": "London",
+        "zip": "654 32",
+        "state": "United Kingdom"
+      }
+    },
+    "theme": {
+      "light": "Switch to light mode",
+      "dark": "Switch to dark mode"
+    },
+    "czk": "CZK",
+    "pcs": "Pcs",
+    "base": {
+      "title": "NOVÁ HORA | Zaječí Winery",
+      "description": "Discover delicious Moravian wines! Interesting varieties, precise processing, and unforgettable taste experience. Don't hesitate to contact us and let us introduce you to a piece of Moravian winemaking passion.",
+      "siteName": "Víno ze Zaječí"
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "intro": "1. Introduction",
+      "supplier_label": "Supplier",
+      "ordering": "2. Order and Purchase Agreement",
+      "supplier_obligations": "Subject of the order and supplier obligations",
+      "buyer_obligations": "Buyer obligations",
+      "delivery": "3. Delivery Terms",
+      "delivery_time": "Delivery time",
+      "shipping": "Shipping",
+      "payment": "4. Payment methods",
+      "receipt_of_delivery": "Receipt of delivery",
+      "payment_methods_label": "Payment is made by:",
+      "cancellation": "5. Withdrawal from the purchase agreement",
+      "other": "6. Other provisions",
+      "complaints": "7. Complaints",
+      "privacy": "8. Personal data protection",
+      "satisfaction": "9. Customer satisfaction",
+      "final": "10. Final provisions"
+    },
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "wine": "Wines",
+      "taste": "Tasting",
+      "gallery": "Gallery",
+      "contact": "Contact",
+      "login": "Sign In",
+      "signup": "Sign Up",
+      "logout": "Logout",
+      "profile": "User profile"
+    },
+    "intro": {
+      "eyebrow": "Moravian Winery",
+      "title": "The Best Wines from Moravia",
+      "subtitle": "Zaječí Winery Nová Hora – local varieties, traditional processing, unforgettable aroma and taste. Let us share our passion for wine growing and production with you.",
+      "btn": "I WANT WINE",
+      "btn_tasting": "Wine Tasting"
+    },
+    "about": {
+      "eyebrow": "Our Story",
+      "title": "Why Our Wine?",
+      "subtitle": "Traditional wines born in South Moravia.",
+      "description": "Passion for wine and enthusiasm for the beauty of South Moravian landscape and nature led us to Zaječí. Over time, we exchanged office and clinic work for work in the vineyard and cellar. We pass on this passion, enthusiasm, wonder, and beauty, exhaustion from work, and refreshment after it in our wines."
+    },
+    "tasting": {
+      "eyebrow": "Experience Us Live",
+      "title": "Tasting",
+      "show_all": "Learn more about tasting",
+      "basic": {
+        "title": "Basic",
+        "drink": "Tasting of 6 samples",
+        "food": "Bread, water",
+        "time": "Duration 1 hour"
+      },
+      "standard": {
+        "title": "Medium",
+        "drink": "Tasting of 10 samples",
+        "food": "Refreshments, bread, water",
+        "time": "Duration 2 to 2 and 1.5 hours"
+      },
+      "premium": {
+        "title": "All you can drink",
+        "drink": "Tasting of all samples (min. 9 white, 4 rosé, 4 red)",
+        "food": "Rich refreshments, water, non-alcoholic drinks, beer, cider, šláftruňk",
+        "time": "Duration according to mood, approx. 5 hours"
+      }
+    },
+    "gallery": {
+      "title": "Photo Gallery"
+    },
+    "contact": {
+      "eyebrow": "Get in Touch",
+      "title": "Contact",
+      "subtitle": "Zaječí Winery Nová Hora",
+      "appointment": "Feel free to call us; we will be happy to advise you on selection or answer any questions regarding our wines.",
+      "success_msg": "Your inquiries have been successfully sent. Thank you for your interest! We will try to respond to your inquiries as quickly as possible.",
+      "error_msg": "We apologize, but the form was not submitted. Please check your connection and try again later."
+    },
+    "eshop": {
+      "construction": {
+        "title": "Eshop is under construction",
+        "description": "You can order our wines by phone. We're working on launching an online store that will bring you an even better shopping experience. Thank you for your patience!"
+      }
+    },
+    "admin": {
+      "title": "Dashboard",
+      "quick": {
+        "orders": "Orders",
+        "invoices": "Invoices",
+        "users": "Users",
+        "wines": "Wines",
+        "title": "Quick overview",
+        "description": "Overview of recent activity and quick shortcuts.",
+        "recent": {
+          "title": "Recent orders"
+        }
+      },
+      "recent": {
+        "title": "Recent activity"
+      },
+      "lang": "Language",
+      "taste": {
+        "title": "Tasting",
+        "create_taste": "Add tasting",
+        "form": {
+          "drink": "Drinks",
+          "food": "Food",
+          "time": "Duration"
+        },
+        "placeholder": {
+          "name": "Enter package name",
+          "drink": "E.g. 6 wine samples",
+          "food": "E.g. cheese and charcuterie",
+          "time": "E.g. 2 hours"
+        }
+      },
+      "taste_detail": {
+        "title": "Tasting detail"
+      },
+      "category": {
+        "title": "Categories",
+        "create_category": "Create New Category",
+        "update": {
+          "title": "Edit Category"
+        }
+      },
+      "enum": {
+        "title": "Enums",
+        "create_enum": "Create New Enum",
+        "enum_detail": {
+          "title": "Enum Detail"
+        }
+      },
+      "invoice": {
+        "title": "Invoices",
+        "update": {
+          "title": "Edit Invoice"
+        },
+        "create": {
+          "title": "New Invoice"
+        }
+      },
+      "mail": {
+        "title": "Emails",
+        "send": "Send email",
+        "send_success": "Email sent successfully.",
+        "send_error": "Failed to send email."
+      },
+      "text": {
+        "title": "Texts",
+        "create_text": "Create New Text",
+        "update": {
+          "title": "Edit Text"
+        }
+      },
+      "user": {
+        "title": "Users",
+        "update": {
+          "title": "Edit User"
+        }
+      },
+      "address": {
+        "title": "Addresses"
+      },
+      "order": {
+        "title": "Orders"
+      },
+      "role": {
+        "title": "Roles"
+      },
+      "wine": {
+        "title": "Wines"
+      },
+      "payment": {
+        "title": "Payments"
+      },
+      "shipping": {
+        "title": "Shipping"
+      },
+      "vat_rate": {
+        "title": "VAT rates"
+      }
+    },
+    "layout": {
+      "admin_online": "Admin online",
+      "toggle_color_mode": "Toggle color mode",
+      "cart": "Shopping cart",
+      "vineyard_overview": "Vineyard under control",
+      "vineyard_overview_description": "Manage wines, orders and customers from one place."
+    },
+    "dashboard": {
+      "administrator": "administrator",
+      "eyebrow": "Winery control centre",
+      "greeting": "Hello, {name}.",
+      "description": "Keep wines, orders and customers clearly organised in one place.",
+      "new_wine": "Add wine",
+      "browse_orders": "View orders",
+      "recent_activity": "Recent activity",
+      "recent_orders": "Recent orders",
+      "all_orders": "All orders",
+      "no_orders": "There are no orders yet.",
+      "customer": "Customer",
+      "cellar": "Wine cellar",
+      "latest_wines": "Latest wines",
+      "no_wines": "There are no wines yet.",
+      "stock": "In stock: {count}",
+      "title": "Dashboard"
+    },
+    "dropzone": {
+      "drag_files": "Drag files here",
+      "or": "or",
+      "browse_files": "browse files",
+      "max_file_size": "Max file size: {size} MB",
+      "supported_formats": "Supported formats: {types}",
+      "wrong_type": "File {name} has an unsupported format. Allowed types: {types}",
+      "wrong_size": "File {name} exceeded the limit of {size} MB."
+    },
+    "placeholder": {
+      "leave_comment": "Leave a message..."
+    },
+    "aria": {
+      "mode": "Color motif button",
+      "hamburger": "Side navigation",
+      "close": "Close button",
+      "lang": "Language mutation",
+      "delete": "Delete item button",
+      "delete_selected": "Delete selected items button",
+      "cart": "Shopping cart"
+    },
+    "mailing": {
+      "contact_form": {
+        "subject": "Confirmation of Receipt of Your Email",
+        "addressed": "Dear Customer",
+        "thank_you": "Thank you for your interest and message.",
+        "message_received": "Your message has been successfully delivered to our team. Our customer support department will look into it as soon as possible and try to respond within 24 hours (on business days).",
+        "further_questions": "If you have any further questions, feel free to contact us.",
+        "regards": "Best Regards",
+        "team": "Nová Hora Winery"
+      },
+      "signup": {
+        "subject": "Registration Confirmation",
+        "thank_you": "Thank you for registering on our platform.",
+        "success_done": "Your registration has been successfully completed, and your account has been activated.",
+        "further_questions": "If you have any questions regarding the use of our services or need assistance, feel free to contact us. We are here for you."
+      },
+      "forgot_password": {
+        "subject": "Password Reset",
+        "request_password": "We have received a request to reset the password for your account.",
+        "new_password": "A new password has been generated for your account.",
+        "contact_us": "If you did not request a new password, please contact us immediately.",
+        "further_questions": "If you have any further questions or need assistance, feel free to contact us."
+      },
+      "order": {
+        "confirmed": {
+          "subject": "Order {orderId}",
+          "thank_you": "Thank you for your interest. Your order has been received.",
+          "invoice": "We are sending you the invoice in the attachment. Please take a moment to check all the details. If anything is incorrect, just contact us at the email address.",
+          "taste": "We believe you will enjoy our wine and that you will choose us again next time."
+        }
+      }
+    },
+    "state": {
+      "cz": "Czechia",
+      "sk": "Slovakia"
+    },
+    "footer": {
+      "copyright": "All rights reserved",
+      "reserved": "All rights reserved",
+      "made_by": "Made by",
+      "cookies": "We use cookies to ensure the optimal user experience and to measure its performance. By continuing to use this website, we assume that you consent to the use of cookies. However, you can change your cookie settings at any time through your browser's relevant features."
+    },
+    "category": {
+      "id": "ID",
+      "name": "Name",
+      "syscode": "Code",
+      "description": "Description",
+      "position": "Position",
+      "parent": "Parent Category",
+      "placeholder": {
+        "name": "Enter category name",
+        "syscode": "Enter category code",
+        "description": "Enter category description",
+        "position": "Enter position"
+      }
+    },
+    "enum": {
+      "form": {
+        "type": "Type",
+        "syscode": "System code",
+        "label": "Label",
+        "value": "Value",
+        "position": "Position"
+      },
+      "placeholder": {
+        "type": "Enter type",
+        "syscode": "Enter system code",
+        "label": "Enter label",
+        "value": "Enter value"
+      },
+      "item": {
+        "syscode": "Item code",
+        "name": "Item name",
+        "description": "Item description",
+        "disabled": "Disabled",
+        "hidden": "Hidden",
+        "placeholder": {
+          "syscode": "Enter item code",
+          "name": "Enter item name",
+          "description": "Enter item description"
+        }
+      }
+    },
+    "cashdesk": {
+      "title": "Cashdesk",
+      "shipping_payment": "Shipping and payment",
+      "summary": "Summary",
+      "anonymous": "Anonymous",
+      "billing_address": "Billing address",
+      "shipping_address": "Shipping address"
+    },
+    "cashdesk_completed": {
+      "title": "Thank you for your order!",
+      "order": "Your order no. {orderId} has been received.",
+      "send_to_email": "Confirmation and further information have been sent to {email}.",
+      "thank_you": "We hope you enjoy our wine and look forward to seeing you again."
+    },
+    "cart": {
+      "title": "Cart",
+      "added": "Added to cart: {name}",
+      "total": "Total of items in the basket",
+      "total_price": "Total to pay",
+      "empty": "The cart is empty",
+      "remove": "Do you really want to remove: \"{name}\" from the cart?",
+      "remove_from_cart": "Remove from cart",
+      "added_to_cart": "Added to cart"
+    },
+    "shipping": {
+      "title": "Shipping",
+      "brno": "Brno center",
+      "free": "Free Shipping",
+      "ppl": "PPL",
+      "gls": "GLS",
+      "dpd": "DPD",
+      "post": "Czech Post",
+      "zas": "Zásilkovna",
+      "dhl": "DHL",
+      "geis": "GEIS",
+      "messenger": "Messenger",
+      "address": "Delivery address",
+      "brno_free": "Shipping within the Brno-City district and Modřice is free every Thursday.",
+      "limit_free": "For orders over 2500 CZK, shipping is free.",
+      "third_day": "Shipping on the third day after dispatch at the latest.",
+      "not_quaranteed": "Shipping is not guaranteed."
+    },
+    "payment": {
+      "title": "Payment",
+      "bank": "Bank Transfer",
+      "card": "Card Payment",
+      "paypal": "PAYPAL",
+      "gopay": "GOPAY",
+      "apple_pay": "APPLE PAY",
+      "google_pay": "GOOGLE PAY",
+      "cash": "Cash",
+      "account_num": "Account number",
+      "variable_sym": "Variable symbol",
+      "recipient_msg": "Message for recipient"
+    },
+    "order": {
+      "title": "Orders",
+      "create_order": "Create order",
+      "user_email": "User Email",
+      "user_name": "User Name",
+      "user_surname": "User Surname",
+      "user_phone": "User Phone",
+      "total_price": "Total Price",
+      "status": "Status",
+      "shipping_type": "Shipping Type",
+      "payment_type": "Payment Type",
+      "order_id": "Order ID",
+      "order_number": "Order Number",
+      "status_pending": "Pending",
+      "status_confirmed": "Confirmed",
+      "status_processing": "Processing",
+      "status_shipped": "Shipped",
+      "status_delivered": "Delivered",
+      "status_cancelled": "Cancelled",
+      "status_refunded": "Refunded",
+      "customer": "Customer"
+    },
+    "invoice": {
+      "title": "Invoice",
+      "ico": "ICO",
+      "dic": "VAT ID",
+      "vat_exempt": "VAT Exempt",
+      "customer": "Customer",
+      "order_number": "Order Number",
+      "invoice_number": "Invoice Number",
+      "order_id": "Order ID",
+      "issued_at": "Issue Date",
+      "due_at": "Due Date",
+      "supplier": "Supplier",
+      "bank_account": "Bank Account",
+      "variable_symbol": "Variable Symbol",
+      "payment_method": "Payment Method",
+      "item": "Item",
+      "price": "Price excl. VAT",
+      "price_with_vat": "Price incl. VAT",
+      "total_price": "Total excl. VAT",
+      "total_price_with_vat": "Total incl. VAT",
+      "total_price_all_with_vat": "Grand Total incl. VAT",
+      "currency": "CZK",
+      "status": "Status"
+    },
+    "status": {
+      "draft": "Draft",
+      "issued": "Issued",
+      "paid": "Paid",
+      "overdue": "Overdue",
+      "cancelled": "Cancelled",
+      "refunded": "Refunded",
+      "pending": "Pending"
+    },
+    "mail": {
+      "template": "Template",
+      "to": "Recipient",
+      "subject": "Subject",
+      "placeholder": {
+        "to": "email{'@'}example.com",
+        "subject": "Email subject"
+      }
+    },
+    "text": {
+      "id": "ID",
+      "syscode": "Code",
+      "title": "Title",
+      "content": "Content",
+      "language": "Language"
+    },
+    "user": {
+      "id": "ID",
+      "email": "Email",
+      "name": "First Name",
+      "surname": "Last Name",
+      "phone": "Phone",
+      "role": "Role",
+      "status": "Status",
+      "status_inactive": "Inactive",
+      "status_banned": "Banned"
+    },
+    "address": {
+      "type": "Type",
+      "name": "Name",
+      "company": "Company",
+      "street": "Street",
+      "city": "City",
+      "zip": "Postal code",
+      "country": "Country",
+      "is_default": "Default",
+      "billing": "Billing",
+      "shipping": "Shipping",
+      "admin": {
+        "title": "Addresses",
+        "update": {
+          "title": "Edit Address"
+        },
+        "create": {
+          "title": "New Address"
+        }
+      },
+      "placeholder": {
+        "name": "John Doe",
+        "company": "Company Ltd.",
+        "street": "Main St 10",
+        "city": "Prague",
+        "zip": "10000",
+        "country": "CZ"
+      }
+    },
+    "role": {
+      "name": "Name",
+      "label": "Label",
+      "position": "Position",
+      "admin": {
+        "title": "Roles",
+        "update": {
+          "title": "Edit Role"
+        },
+        "create": {
+          "title": "New Role"
+        }
+      },
+      "placeholder": {
+        "name": "admin",
+        "label": "Administrator",
+        "position": "0"
+      }
+    },
+    "wine": {
+      "eyebrow": "Our Wines",
+      "title": "Wine Selection",
+      "show_all": "View all wines",
+      "to_cart": "Add to Cart",
+      "detail": {
+        "title": "Wine detail"
+      },
+      "form": {
+        "name": "Wine name",
+        "kind": "Kind",
+        "quality": "Adjective",
+        "color": "Color",
+        "year": "Year",
+        "variant": "Grape variety",
+        "volume": "Volume",
+        "winery": "Winery",
+        "region": "Region",
+        "alcohol": "Alcohol",
+        "sku": "SKU",
+        "batch": "Batch"
+      },
+      "placeholder": {
+        "name": "Sauvignon Blanc, selection of grapes",
+        "variant": "Traminer",
+        "region": "Moravian wine region"
+      },
+      "kind": {
+        "dry": "Dry",
+        "semi_dry": "Semi-dry",
+        "sweet": "Sweet",
+        "semi_sweet": "Semi-sweet",
+        "extra_dry": "Extra dry",
+        "off_dry": "Off-dry",
+        "medium_dry": "Medium dry",
+        "medium_sweet": "Medium sweet",
+        "very_sweet": "Very sweet",
+        "dessert": "Dessert"
+      },
+      "color": {
+        "white": "White",
+        "red": "Red",
+        "rose": "Rosé"
+      },
+      "quality": {
+        "kabinett": "Kabinett wine",
+        "late_harvest": "Late harvest",
+        "selection_of_grapes": "Selection of grapes",
+        "selection_of_berries": "Selection of berries",
+        "ice_wine": "Ice wine",
+        "straw_wine": "Straw wine",
+        "quality_wine": "Quality wine",
+        "archive_wine": "Archive wine",
+        "table_wine": "Table wine"
+      },
+      "variety": {
+        "riesling": "Riesling",
+        "gruner_veltliner": "Grüner Veltliner",
+        "welschriesling": "Welschriesling",
+        "sauvignon_blanc": "Sauvignon Blanc",
+        "pinot_gris": "Pinot Gris",
+        "pinot_blanc": "Pinot Blanc",
+        "chardonnay": "Chardonnay",
+        "traminer": "Traminer",
+        "muscat": "Moravian Muscat",
+        "mueller_thurgau": "Müller Thurgau",
+        "st_laurent": "St. Laurent",
+        "pinot_noir": "Pinot Noir",
+        "zweigelt": "Zweigelt",
+        "cabernet_sauvignon": "Cabernet Sauvignon",
+        "merlot": "Merlot",
+        "frankovka": "Frankovka",
+        "modry_portugal": "Modrý Portugal",
+        "other": "Other variety"
+      }
+    },
+    "gdpr": {
+      "title": "Privacy policy"
+    },
+    "table": {
+      "empty": "No records",
+      "records": "records"
+    }
+  },
+  "admin": {
+    "wine": {
+      "title": "Wines",
+      "create": {
+        "title": "Create new wine"
+      },
+      "create_wine": "Create wine",
+      "update": {
+        "title": "Update wine: \"{name}\""
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "syscode": "shipping",
+  "title": "$.shipping.title",
+  "fields": [
+    {
+      "name": "name",
+      "label": "$.form.name",
+      "placeholder": "John Doe",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "street",
+      "label": "$.form.street",
+      "placeholder": "Blvd Ave. 12",
+      "autocomplete": "street-address",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "city",
+      "label": "$.form.city",
+      "placeholder": "London",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "zip",
+      "label": "$.form.zip",
+      "placeholder": "Blvd Ave. 12",
+      "autocomplete": "postal-code",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "state",
+      "type": "select",
+      "label": "$.form.state",
+      "placeholder": "Blvd Ave. 12",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"country_code\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      },
+      "value": ""
+    }
+  ]
+}

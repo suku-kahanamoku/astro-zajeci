@@ -1,0 +1,218 @@
+---
+import { homeData } from "../server/providers";
+import { t } from "../modules/LangModule";
+import { url } from "../config/site";
+import SectionTitle from "./SectionTitle.astro";
+import Promotion from "./Promotion";
+import ContactForm from "./ContactForm";
+import { WineList } from "../modules/ShopModule/Wine";
+import Icon from "../modules/UIModule/Icon";
+const { locale = "cs" } = Astro.props;
+const data = await homeData();
+const contact = data.contact || {
+  email: "vyborne@vinozezajeci.cz",
+  phone1: "+420 770 199 999",
+  phone2: "+420 778 711 111",
+  street: "Školní 156",
+  zip: "691 05",
+  city: "Zaječí",
+  ic: "19737491",
+};
+---
+
+<div class="w-full overflow-hidden">
+  <Promotion client:load />
+  <section
+    id="intro"
+    class="overflow-hidden relative py-36 lg:py-56 px-8 lg:px-12"
+  >
+    <div
+      class="hero-image absolute inset-0"
+      style="background-image:url('/img/intro.jpg');background-size:cover;background-position:center"
+    ></div>
+    <div class="absolute inset-0 hero-tone"></div>
+    <div class="absolute inset-0 bg-black/45 z-10"></div>
+    <div class="mx-auto max-w-7xl relative z-20">
+      <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight text-white max-w-3xl">
+        {t("$.intro.title", locale)}
+      </h1>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          class="btn secondary large font-semibold tracking-wide uppercase"
+          href={url("/wine", locale)}
+        >
+          {t("$.intro.btn", locale)}
+        </a>
+        <a
+          class="btn gold large font-semibold tracking-wide uppercase"
+          href={url("/#tasting", locale)}
+        >
+          {t("$.intro.btn_tasting", locale)}
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="w-full max-w-7xl mx-auto px-5 space-y-10 py-10">
+    <section id="about">
+      <SectionTitle
+        eyebrow={t("$.about.eyebrow", locale)}
+        title={t("$.about.title", locale)}
+        icon="lucide:grape"
+        leadingTight
+      />
+      <p class="text-center lg:text-lg text-river-bed dark:text-gray-300 max-w-3xl mx-auto leading-relaxed reveal">
+        {t("$.about.description", locale)}
+      </p>
+    </section>
+    <section id="wine-list-top">
+      <SectionTitle
+        eyebrow={t("$.wine.eyebrow", locale)}
+        title={t("$.wine.title", locale)}
+        icon="ph:wine-duotone"
+      />
+      {data.wines.length > 0 ? (
+        <WineList client:load wines={data.wines} locale={locale} carousel />
+      ) : (
+        <p class="text-center text-gray-500">
+          {data.error
+            ? locale === "en"
+              ? "The wine catalogue is temporarily unavailable."
+              : "Nabídka vín je dočasně nedostupná."
+            : t("$.dashboard.no_wines", locale)}
+        </p>
+      )}
+      <div class="text-center mt-10">
+        <a class="btn outline secondary" href={url("/wine", locale)}>
+          {t("$.wine.show_all", locale)} →
+        </a>
+      </div>
+    </section>
+    <section id="tasting">
+      <SectionTitle
+        eyebrow={t("$.tasting.eyebrow", locale)}
+        title={t("$.tasting.title", locale)}
+        icons={["ph:cheese-duotone", "lucide:wine"]}
+        icon="lucide:wine"
+      />
+      <div class="flex flex-wrap justify-center gap-4 items-stretch">
+        {data.tasting.map((item: any) => (
+          <article class="w-full md:flex-1 md:min-w-72 md:max-w-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl hover:border-primary-400 transition-all duration-300 overflow-hidden">
+            <div class="h-1 bg-linear-to-r from-primary-400 to-primary-600" />
+            <div class="p-8 text-center space-y-2 border-b border-gray-100 dark:border-gray-800">
+              <h3 class="font-serif text-2xl font-bold text-river-bed dark:text-white">
+                {item.label || item.name}
+              </h3>
+              <p class="text-secondary-500 font-semibold text-lg">
+                {item.data?.price || 0} Kč /{" "}
+                {locale === "en" ? "person" : "osoba"}
+              </p>
+            </div>
+            <ul class="grid gap-4 p-8">
+              {[
+                ["drink", "ph:wine-duotone"],
+                ["food", "icon-park-outline:bread"],
+                ["time", "ion:hourglass-outline"],
+              ]
+                .filter(([key]) => item.data?.[key])
+                .map(([key, icon]) => (
+                  <li class="flex items-center gap-3 text-river-bed dark:text-gray-300">
+                    <span class="shrink-0 w-9 h-9 rounded-full bg-athens-gray dark:bg-gray-800 flex items-center justify-center">
+                      <Icon name={icon} className="text-primary-500" />
+                    </span>
+                    <span class="text-sm font-medium">{item.data[key]}</span>
+                  </li>
+                ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section id="contact">
+      <SectionTitle
+        eyebrow={t("$.contact.eyebrow", locale)}
+        title={t("$.contact.title", locale)}
+        icon="uil:envelope"
+      />
+      <div class="grid md:grid-cols-2 gap-10 py-4">
+        <div class="reveal">
+          <p class="lg:text-lg text-gray-600 dark:text-gray-400 mt-3">
+            {t("$.contact.appointment", locale)}
+          </p>
+          <div class="mt-5 space-y-3 text-gray-600 dark:text-white">
+            <p class="flex items-center gap-3">
+              <Icon
+                name="uil:envelope"
+                size={26}
+                className="text-primary-500"
+              />
+              <a href={"mailto:" + contact.email}>{contact.email}</a>
+            </p>
+            {["phone1", "phone2"].map((key) => (
+              <p class="flex items-center gap-3">
+                <Icon
+                  name={key === "phone1" ? "uil:phone" : "mdi:phone-classic"}
+                  size={26}
+                  className="text-primary-500"
+                />
+                <a
+                  href={"tel:" + String(contact[key] || "").replace(/\s/g, "")}
+                >
+                  {contact[key]}
+                </a>
+              </p>
+            ))}
+            <p class="flex items-start gap-3">
+              <Icon
+                name="uil:map-marker"
+                size={26}
+                className="text-primary-500"
+              />
+              <span>
+                {contact.street}, {contact.zip} {contact.city}
+                <br />
+                IČ {contact.ic}
+                {contact.dic && <> · DIČ {contact.dic}</>}
+              </span>
+            </p>
+          </div>
+        </div>
+        <div>
+          <ContactForm client:visible locale={locale} />
+        </div>
+      </div>
+    </section>
+  </div>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1133.8470187599103!2d16.77301701287706!3d48.872071975484374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4712d1808ab9b27b%3A0x56188032580edada!2zxaBrb2xuw60gMTU2LCA2OTEgMDUgWmFqZcSNw60!5e0!3m2!1scs!2scz!4v1715605676127!5m2!1scs!2scz"
+    width="100%"
+    height="600"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Mapa - Zaječské vinařství Nová Hora"
+  ></iframe>
+</div>
+<script>
+  import Ukiyo from "ukiyojs";
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const image = document.querySelector<HTMLElement>(".hero-image");
+    if (image)
+      new Ukiyo(image, {
+        speed: matchMedia("(min-width:1024px)").matches ? 5 : 1,
+      });
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.animate(
+            [
+              { opacity: 0, transform: "translateY(20px)" },
+              { opacity: 1, transform: "none" },
+            ],
+            { duration: 650, easing: "ease-out" },
+          );
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  }
+</script>

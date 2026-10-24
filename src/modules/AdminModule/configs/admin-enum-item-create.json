@@ -1,0 +1,59 @@
+{
+  "syscode": "admin-enum-item-create",
+  "postUrl": "/api/admin/enum/${route.meta.id}",
+  "method": "POST",
+  "modelType": "enumItem",
+  "fields": [
+    {
+      "name": "syscode",
+      "type": "text",
+      "label": "$.enum.item.syscode",
+      "placeholder": "$.enum.item.placeholder.syscode",
+      "required": true
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "label": "$.enum.item.name",
+      "placeholder": "$.enum.item.placeholder.name"
+    },
+    {
+      "name": "description",
+      "type": "text",
+      "label": "$.enum.item.description",
+      "placeholder": "$.enum.item.placeholder.description"
+    },
+    {
+      "name": "disabled",
+      "type": "radio",
+      "label": "$.enum.item.disabled",
+      "options": [
+        {
+          "label": "$.btn.yes",
+          "value": true
+        },
+        {
+          "label": "$.btn.no",
+          "value": false
+        }
+      ],
+      "value": false
+    },
+    {
+      "name": "hidden",
+      "type": "radio",
+      "label": "$.enum.item.hidden",
+      "options": [
+        {
+          "label": "$.btn.yes",
+          "value": true
+        },
+        {
+          "label": "$.btn.no",
+          "value": false
+        }
+      ],
+      "value": false
+    }
+  ]
+}

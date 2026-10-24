@@ -1,0 +1,252 @@
+---
+import "../styles/global.css";
+import Icon from "../modules/UIModule/Icon";
+import Header from "../components/Header";
+import CookieBanner from "../components/CookieBanner";
+import { SITE_URL, SITE_NAME, canonical, url } from "../config/site";
+import { t } from "../modules/LangModule";
+import { env } from "../server/env";
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: string;
+  noindex?: boolean;
+  image?: string;
+  canonicalPath?: string;
+  schema?: any;
+  admin?: boolean;
+}
+const {
+  locale = "cs",
+  title = t("$.base.title", locale),
+  description = t("$.base.description", locale),
+  noindex = false,
+  image = SITE_URL + "/img/intro.jpg",
+  canonicalPath = Astro.url.pathname,
+  schema,
+  admin = false,
+} = Astro.props;
+const canonicalUrl = canonical(canonicalPath);
+const rawPath = Astro.url.pathname.replace(/^\/en(?=\/|$)/, "") || "/";
+const seoTitle =
+  (rawPath === "/" ? title.split(" | ")[0] : title) + " | " + SITE_NAME;
+const socialImageAlt = rawPath.startsWith("/wine/")
+  ? title
+  : "Vinice Vinařství Nová Hora v Zaječí";
+const alternatePath = canonicalPath.replace(/^\/en(?=\/|$)/, "") || "/";
+const analytics = env("PUBLIC_GTAG_ID", env("NUXT_PUBLIC_GTAG_ID"));
+const structured = schema || {
+  "@context": "https://schema.org",
+  "@type": "Winery",
+  "@id": SITE_URL + "/#winery",
+  name: "Víno ze Zaječí – Vinařství Nová Hora",
+  url: SITE_URL + "/",
+  image: SITE_URL + "/img/intro.jpg",
+  telephone: "+420770199999",
+  email: "vyborne@vinozezajeci.cz",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Školní 156",
+    addressLocality: "Zaječí",
+    postalCode: "691 05",
+    addressCountry: "CZ",
+  },
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{seoTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={description} />
+    <meta
+      name="robots"
+      content={noindex ? "noindex, nofollow" : "index, follow"}
+    />
+    <link rel="canonical" href={canonicalUrl} />
+    <link
+      rel="alternate"
+      hreflang="cs-CZ"
+      href={canonical(url(alternatePath, "cs"))}
+    />
+    <link
+      rel="alternate"
+      hreflang="en-US"
+      href={canonical(url(alternatePath, "en"))}
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={canonical(url(alternatePath, "cs"))}
+    />
+    <meta
+      property="og:type"
+      content={rawPath.startsWith("/wine/") ? "product" : "website"}
+    />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={locale === "en" ? "en_US" : "cs_CZ"} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="600" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structured).replaceAll("<", "\\u003c")}
+    />
+    <script is:inline>
+      try {
+        document.documentElement.classList.toggle(
+          "dark",
+          localStorage.getItem("nuxt-color-mode") === "dark",
+        );
+      } catch {}
+    </script>
+    {analytics && (
+      <>
+        <script
+          is:inline
+          async
+          src={
+            "https://www.googletagmanager.com/gtag/js?id=" +
+            encodeURIComponent(analytics)
+          }
+        ></script>
+        <script is:inline define:vars={{ analytics }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", analytics);
+        </script>
+      </>
+    )}
+  </head>
+  <body
+    class:list={["min-h-screen flex flex-col", { "crm-admin-shell": admin }]}
+  >
+    <a href="#main-content" class="skip-link">
+      {locale === "en" ? "Skip to content" : "Přejít na obsah"}
+    </a>
+    <Header
+      client:load
+      locale={locale}
+      user={Astro.locals.session?.user || null}
+      admin={admin}
+    />
+    <main id="main-content" class="flex-1 min-w-0">
+      {rawPath !== "/" && !admin && (
+        <nav
+          aria-label="Drobečková navigace"
+          class="max-w-7xl mx-auto px-5 pt-4 text-sm text-gray-500"
+        >
+          <a href={url("/", locale)}>{t("$.navbar.home", locale)}</a>
+          <span aria-hidden="true"> › </span>
+          <span>{title}</span>
+        </nav>
+      )}
+      <slot />
+    </main>
+    {!admin && (
+      <footer class="border-t border-gray-200 dark:border-gray-800 bg-primary-900 dark:bg-gray-950 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-5 py-12">
+          <div class="grid md:grid-cols-3 gap-8 items-start">
+            <div class="space-y-3">
+              <img
+                src="/img/logo_white.svg"
+                width="64"
+                height="64"
+                alt=""
+                class="w-16 h-16"
+              />
+              <p class="font-serif text-lg font-semibold">Víno ze Zaječí</p>
+              <p class="text-sm text-concrete/70">Školní 156, 691 05 Zaječí</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-semibold tracking-widest uppercase text-fountain-blue">
+                {locale === "en" ? "Navigation" : "Navigace"}
+              </p>
+              <nav class="flex flex-col gap-2 text-sm text-concrete/80">
+                {[
+                  ["about", "/#about"],
+                  ["wine", "/wine"],
+                  ["taste", "/#tasting"],
+                  ["contact", "/#contact"],
+                ].map(([key, path]) => (
+                  <a href={url(path, locale)}>{t("$.navbar." + key, locale)}</a>
+                ))}
+              </nav>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-semibold tracking-widest uppercase text-fountain-blue">
+                {t("$.contact.title", locale)}
+              </p>
+              <div class="flex flex-col gap-2 text-sm text-concrete/80">
+                <a
+                  class="flex items-center gap-2"
+                  href="mailto:vyborne@vinozezajeci.cz"
+                >
+                  <Icon name="uil:envelope" size={16} /> vyborne@vinozezajeci.cz
+                </a>
+                <a class="flex items-center gap-2" href="tel:+420770199999">
+                  <Icon name="uil:phone" size={16} /> +420 770 199 999
+                </a>
+                <a class="flex items-center gap-2" href="tel:+420778711111">
+                  <Icon name="mdi:phone-classic" size={16} /> +420 778 711 111
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10 pt-6 border-t border-primary-800 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-concrete/50">
+            <p>© {new Date().getFullYear()} Víno ze Zaječí · IČ 19737491</p>
+            <p>
+              Pijte zodpovědně. Alkohol je určen pouze osobám starším 18 let.
+            </p>
+          </div>
+        </div>
+      </footer>
+    )}
+    <CookieBanner client:idle locale={locale} />
+    <script>
+      if (import.meta.env.PROD && "serviceWorker" in navigator) {
+        const register = () => {
+          const existing = !!navigator.serviceWorker.controller;
+          let reloading = false;
+          navigator.serviceWorker.addEventListener("controllerchange", () => {
+            if (existing && !reloading) {
+              reloading = true;
+              location.reload();
+            }
+          });
+          void navigator.serviceWorker
+            .register("/sw.js", { updateViaCache: "none" })
+            .then((registration) => {
+              const update = () => {
+                if (!document.hidden)
+                  void registration.update().catch(() => {});
+              };
+              document.addEventListener("visibilitychange", update);
+              setInterval(update, 60 * 60 * 1000);
+            })
+            .catch(() => {});
+        };
+        if (document.readyState === "complete") register();
+        else window.addEventListener("load", register, { once: true });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+{
+  "syscode": "admin-address-list",
+  "restUrl": "/api/admin/address",
+  "deleteUrl": "/api/admin/address/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${name}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "user_id",
+      "colName": "user.email",
+      "type": "select",
+      "label": "$.user.email",
+      "restOptions": {
+        "url": "/api/admin/user?limit=100",
+        "label": "email",
+        "value": "id"
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "type",
+      "type": "select",
+      "label": "$.address.type",
+      "options": [
+        {
+          "label": "$.address.billing",
+          "value": "billing"
+        },
+        {
+          "label": "$.address.shipping",
+          "value": "shipping"
+        }
+      ],
+      "size": "md",
+      "operator": {
+        "value": "$eq",
+        "enabled": true
+      },
+      "clearable": true
+    },
+    {
+      "name": "name",
+      "label": "$.address.name",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "street",
+      "label": "$.address.street",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "city",
+      "label": "$.address.city",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

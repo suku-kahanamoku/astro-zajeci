@@ -1,0 +1,64 @@
+{
+  "syscode": "admin-payment-create",
+  "postUrl": "/api/admin/enum",
+  "method": "POST",
+  "fields": [
+    {
+      "name": "type",
+      "type": "hidden",
+      "value": "payment"
+    },
+    {
+      "name": "label",
+      "type": "text",
+      "label": "$.form.name",
+      "required": true
+    },
+    {
+      "name": "syscode",
+      "type": "text",
+      "label": "$.form.syscode",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "text",
+      "label": "$.form.value",
+      "required": true
+    },
+    {
+      "name": "data.price",
+      "type": "number",
+      "label": "$.form.price",
+      "required": true
+    },
+    {
+      "name": "data.icon",
+      "type": "text",
+      "label": "$.form.icon"
+    },
+    {
+      "name": "data.disabled",
+      "type": "select",
+      "label": "$.form.disabled",
+      "options": [
+        { "value": false, "label": "$.form.no" },
+        { "value": true, "label": "$.form.yes" }
+      ]
+    },
+    {
+      "name": "position",
+      "type": "number",
+      "label": "$.form.position"
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        { "value": 1, "label": "$.form.yes" },
+        { "value": 0, "label": "$.form.no" }
+      ]
+    }
+  ]
+}

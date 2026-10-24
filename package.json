@@ -1,0 +1,49 @@
+{
+  "name": "astro-zajeci",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "npm run check && astro build",
+    "build:netlify": "NETLIFY=true npm run build",
+    "start": "PORT=4321 node --env-file-if-exists=.env dist/server/entry.mjs",
+    "preview": "astro preview",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:browser": "playwright test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:browser:production": "npm run build && playwright test --config playwright.production.config.ts"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "^8.2.10",
+    "@astrojs/node": "^11.1.6",
+    "@astrojs/react": "^5.0.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.5",
+    "jose": "^6.1.0",
+    "lucide-react": "^0.468.0",
+    "photoswipe": "^5.4.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.3.3",
+    "ukiyojs": "^4.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.0.1",
+    "tsx": "^4.20.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.1",
+    "workbox-build": "^7.4.1"
+  }
+}

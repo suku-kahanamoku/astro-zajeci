@@ -1,0 +1,13 @@
+{
+  "syscode": "admin-invoice-create",
+  "postUrl": "/api/admin/invoice",
+  "method": "POST",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "number",
+      "label": "$.invoice.order_id",
+      "required": true
+    }
+  ]
+}

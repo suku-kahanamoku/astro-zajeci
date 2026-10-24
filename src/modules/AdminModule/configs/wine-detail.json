@@ -1,0 +1,97 @@
+{
+  "syscode": "wine-detail",
+  "restUrl": "/api/wine/${route.meta.id}",
+  "projection": [
+    "name",
+    "kind",
+    "color",
+    "variant",
+    "price",
+    "stock_quantity",
+    "description",
+    "data.quality",
+    "data.volume",
+    "data.year",
+    "data.alcohol",
+    "data.winery",
+    "data.region",
+    "files"
+  ],
+  "fields": [
+    {
+      "name": "kind",
+      "type": "select",
+      "label": "$.wine.form.kind",
+      "iconName": "i-heroicons-tag",
+      "iconColor": "text-primary-500",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_kind\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "name": "data.quality",
+      "type": "text",
+      "label": "$.wine.form.quality",
+      "iconName": "i-heroicons-star",
+      "iconColor": "text-yellow-500"
+    },
+    {
+      "name": "color",
+      "type": "select",
+      "label": "$.wine.form.color",
+      "iconName": "i-heroicons-paint-brush",
+      "iconColor": "text-pink-500",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_color\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "name": "variant",
+      "type": "text",
+      "label": "$.wine.form.variant",
+      "iconName": "i-heroicons-sparkles",
+      "iconColor": "text-green-500"
+    },
+    {
+      "name": "data.volume",
+      "type": "number",
+      "label": "$.wine.form.volume",
+      "iconName": "i-heroicons-beaker",
+      "iconColor": "text-blue-500"
+    },
+    {
+      "name": "data.year",
+      "type": "number",
+      "label": "$.wine.form.year",
+      "iconName": "i-heroicons-calendar",
+      "iconColor": "text-amber-500"
+    },
+    {
+      "name": "data.alcohol",
+      "type": "number",
+      "label": "$.wine.form.alcohol",
+      "iconName": "i-heroicons-fire",
+      "iconColor": "text-orange-500"
+    },
+    {
+      "name": "data.winery",
+      "type": "text",
+      "label": "$.wine.form.winery",
+      "iconName": "i-heroicons-building-storefront",
+      "iconColor": "text-purple-500"
+    },
+    {
+      "name": "data.region",
+      "type": "text",
+      "label": "$.wine.form.region",
+      "iconName": "i-heroicons-map-pin",
+      "iconColor": "text-red-400"
+    }
+  ]
+}

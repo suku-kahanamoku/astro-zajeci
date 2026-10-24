@@ -1,0 +1,120 @@
+{
+  "syscode": "admin-wine-list",
+  "restUrl": "/api/wine",
+  "deleteUrl": "/api/admin/wine/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${name}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "$.wine.form.name",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "sku",
+      "type": "text",
+      "label": "$.wine.form.sku",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "data.batch",
+      "type": "text",
+      "label": "$.wine.form.batch",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "kind",
+      "type": "select",
+      "label": "$.wine.form.kind",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_kind\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "color",
+      "type": "select",
+      "label": "$.wine.form.color",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_color\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "label": "$.form.price",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "stock_quantity",
+      "type": "number",
+      "label": "$.form.quantity_stock",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

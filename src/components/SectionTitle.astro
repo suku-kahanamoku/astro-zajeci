@@ -1,0 +1,37 @@
+---
+import Icon from "../modules/UIModule/Icon";
+const {
+  eyebrow,
+  title,
+  icon = "lucide:wine",
+  icons,
+  level = 2,
+  leadingTight = false,
+} = Astro.props;
+const Heading = level === 1 ? "h1" : "h2";
+---
+
+<div class="text-center pt-20 pb-8">
+  <p class="text-xs font-semibold tracking-widest uppercase text-bittersweet mb-3">
+    {eyebrow}
+  </p>
+  <Heading
+    class:list={[
+      "font-serif text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-300 mb-6",
+      { "leading-tight": leadingTight },
+    ]}
+  >
+    {title}
+  </Heading>
+  <div class="section-divider text-bittersweet w-full mt-6 mb-2">
+    {icons ? (
+      <span class="flex">
+        {icons.map((name: string) => (
+          <Icon name={name} size={16} />
+        ))}
+      </span>
+    ) : (
+      <Icon name={icon} size={18} />
+    )}
+  </div>
+</div>

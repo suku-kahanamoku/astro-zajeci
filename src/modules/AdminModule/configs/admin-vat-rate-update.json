@@ -1,0 +1,37 @@
+{
+  "syscode": "admin-vat-rate-update",
+  "restUrl": "/api/enumerations/${route.meta.id}",
+  "patchUrl": "/api/admin/enum/${route.meta.id}",
+  "method": "PATCH",
+  "fields": [
+    {
+      "name": "label",
+      "type": "text",
+      "label": "$.form.name",
+      "required": true
+    },
+    {
+      "name": "syscode",
+      "type": "text",
+      "label": "$.form.syscode",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "text",
+      "label": "$.form.value",
+      "required": true
+    },
+    {
+      "name": "data.rate",
+      "type": "number",
+      "label": "$.vat_rate.form.rate",
+      "required": true
+    },
+    {
+      "name": "published",
+      "type": "checkbox",
+      "label": "$.form.published"
+    }
+  ]
+}

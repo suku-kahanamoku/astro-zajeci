@@ -1,0 +1,27 @@
+{
+  "syscode": "admin-role-update",
+  "restUrl": "/api/admin/role/${route.meta.id}",
+  "patchUrl": "/api/admin/role/${route.meta.id}",
+  "method": "PATCH",
+  "fields": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "$.role.name",
+      "placeholder": "$.role.placeholder.name",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "text",
+      "label": "$.role.label",
+      "placeholder": "$.role.placeholder.label"
+    },
+    {
+      "name": "position",
+      "type": "number",
+      "label": "$.role.position",
+      "placeholder": "$.role.placeholder.position"
+    }
+  ]
+}

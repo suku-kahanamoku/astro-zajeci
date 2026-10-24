@@ -1,0 +1,146 @@
+{
+  "syscode": "admin-wine-create",
+  "postUrl": "/api/admin/wine",
+  "method": "POST",
+  "modelType": "wine",
+  "uploadField": {
+    "name": "paths",
+    "type": "file",
+    "multiple": true,
+    "required": false,
+    "fileSize": 20,
+    "fileTypes": [
+      {
+        "label": "JPG, PNG, GIF, WEBP, PDF",
+        "value": [
+          "image/jpeg",
+          "image/png",
+          "image/gif",
+          "image/webp",
+          "application/pdf"
+        ]
+      }
+    ]
+  },
+  "fields": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "$.wine.form.name",
+      "placeholder": "$.wine.placeholder.name",
+      "required": true
+    },
+    {
+      "name": "sku",
+      "type": "text",
+      "label": "$.wine.form.sku"
+    },
+    {
+      "name": "data.batch",
+      "type": "text",
+      "label": "$.wine.form.batch"
+    },
+    {
+      "name": "kind",
+      "type": "select",
+      "label": "$.wine.form.kind",
+      "placeholder": "$.form.select",
+      "required": true,
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_kind\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "name": "color",
+      "type": "select",
+      "label": "$.wine.form.color",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_color\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "name": "variant",
+      "type": "text",
+      "label": "$.wine.form.variant",
+      "placeholder": "$.wine.placeholder.variant"
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "label": "$.form.price",
+      "required": true
+    },
+    {
+      "name": "stock_quantity",
+      "type": "number",
+      "label": "$.form.quantity_stock"
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ]
+    },
+    {
+      "name": "data.year",
+      "type": "number",
+      "label": "$.wine.form.year"
+    },
+    {
+      "name": "data.volume",
+      "type": "number",
+      "label": "$.wine.form.volume"
+    },
+    {
+      "name": "data.quality",
+      "type": "text",
+      "label": "$.wine.form.quality"
+    },
+    {
+      "name": "data.alcohol",
+      "type": "number",
+      "label": "$.wine.form.alcohol"
+    },
+    {
+      "name": "data.winery",
+      "type": "text",
+      "label": "$.wine.form.winery"
+    },
+    {
+      "name": "data.region",
+      "type": "text",
+      "label": "$.wine.form.region"
+    },
+    {
+      "name": "description",
+      "type": "textarea",
+      "label": "$.form.description"
+    },
+    {
+      "name": "category_ids",
+      "type": "select",
+      "label": "$.form.categories",
+      "placeholder": "$.form.select",
+      "multiple": true,
+      "restOptions": {
+        "url": "/api/category?limit=100",
+        "label": "name",
+        "value": "id"
+      }
+    }
+  ]
+}

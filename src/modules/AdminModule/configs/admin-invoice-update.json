@@ -1,0 +1,59 @@
+{
+  "syscode": "admin-invoice-update",
+  "restUrl": "/api/admin/invoice/${route.meta.id}",
+  "patchUrl": "/api/admin/invoice/${route.meta.id}",
+  "method": "PATCH",
+  "fields": [
+    {
+      "name": "invoice_number",
+      "label": "$.invoice.invoice_number",
+      "disabled": true
+    },
+    {
+      "name": "order_number",
+      "label": "$.invoice.order_number",
+      "disabled": true
+    },
+    {
+      "name": "user.email",
+      "label": "$.form.user_email",
+      "disabled": true
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "label": "$.invoice.status",
+      "required": true,
+      "options": [
+        { "label": "$.status.draft", "value": "draft" },
+        { "label": "$.status.issued", "value": "issued" },
+        { "label": "$.status.paid", "value": "paid" },
+        { "label": "$.status.overdue", "value": "overdue" },
+        { "label": "$.status.cancelled", "value": "cancelled" },
+        { "label": "$.status.refunded", "value": "refunded" }
+      ]
+    },
+    {
+      "name": "issued_at",
+      "type": "text",
+      "label": "$.invoice.issued_at",
+      "disabled": true
+    },
+    {
+      "name": "due_at",
+      "type": "text",
+      "label": "$.invoice.due_at"
+    },
+    {
+      "name": "total_price_all_with_vat",
+      "type": "number",
+      "label": "$.invoice.total_price_all_with_vat",
+      "disabled": true
+    },
+    {
+      "name": "note",
+      "type": "textarea",
+      "label": "$.form.note"
+    }
+  ]
+}

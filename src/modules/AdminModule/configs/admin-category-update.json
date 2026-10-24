@@ -1,0 +1,37 @@
+{
+  "syscode": "admin-category-update",
+  "restUrl": "/api/category/${route.meta.id}",
+  "patchUrl": "/api/admin/category/${route.meta.id}",
+  "method": "PATCH",
+  "fields": [
+    {
+      "name": "parent_id",
+      "type": "select",
+      "label": "$.category.parent",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/category?limit=100",
+        "label": "name",
+        "value": "id"
+      }
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "label": "$.category.syscode",
+      "placeholder": "$.category.placeholder.syscode"
+    },
+    {
+      "name": "description",
+      "type": "textarea",
+      "label": "$.category.description",
+      "placeholder": "$.category.placeholder.description"
+    },
+    {
+      "name": "position",
+      "type": "number",
+      "label": "$.category.position",
+      "placeholder": "$.category.placeholder.position"
+    }
+  ]
+}

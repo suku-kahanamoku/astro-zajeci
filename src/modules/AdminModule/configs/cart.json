@@ -1,0 +1,96 @@
+{
+  "syscode": "cart",
+  "fields": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "$.wine.form.name",
+      "placeholder": "$.wine.placeholder.name"
+    },
+    {
+      "name": "color",
+      "type": "select",
+      "label": "$.wine.form.color",
+      "iconName": "i-heroicons-paint-brush",
+      "iconColor": "text-pink-500",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_color\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "name": "variant",
+      "type": "text",
+      "label": "$.wine.form.variant",
+      "iconName": "i-heroicons-sparkles",
+      "iconColor": "text-green-500"
+    },
+    {
+      "name": "data.year",
+      "type": "number",
+      "label": "$.wine.form.year",
+      "iconName": "i-heroicons-calendar",
+      "iconColor": "text-amber-500"
+    },
+    {
+      "name": "data.quality",
+      "type": "select",
+      "label": "$.wine.form.quality",
+      "iconName": "i-heroicons-star",
+      "iconColor": "text-yellow-500",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_quality\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "name": "kind",
+      "type": "select",
+      "label": "$.wine.form.kind",
+      "iconName": "i-heroicons-tag",
+      "iconColor": "text-primary-500",
+      "placeholder": "$.form.select",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"wine_kind\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "name": "data.volume",
+      "type": "number",
+      "label": "$.wine.form.volume",
+      "iconName": "i-heroicons-beaker",
+      "iconColor": "text-blue-500"
+    },
+    {
+      "name": "quantity",
+      "type": "number",
+      "label": "$.form.quantity"
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "label": "$.form.price_without_vat"
+    },
+    {
+      "name": "vat",
+      "type": "number",
+      "label": "$.form.vat"
+    },
+    {
+      "name": "total_price",
+      "type": "number",
+      "label": "$.form.price_with_vat"
+    },
+    {
+      "name": "description",
+      "type": "textarea",
+      "label": "$.form.description"
+    }
+  ]
+}

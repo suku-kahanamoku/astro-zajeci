@@ -1,0 +1,96 @@
+{
+  "syscode": "billing",
+  "title": "$.cashdesk.billing_address",
+  "fields": [
+    {
+      "name": "email",
+      "type": "email",
+      "label": "$.form.email",
+      "placeholder": "john@doe.com",
+      "autocomplete": "email",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "phone",
+      "type": "phone",
+      "label": "$.form.phone",
+      "placeholder": "+420 721 456 897",
+      "autocomplete": "tel",
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "first_name",
+      "label": "$.form.given_name",
+      "placeholder": "John",
+      "autocomplete": "given-name",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "last_name",
+      "label": "$.form.surname",
+      "placeholder": "Doe",
+      "autocomplete": "family-name",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "address.main.street",
+      "label": "$.form.street",
+      "placeholder": "Blvd Ave. 12",
+      "autocomplete": "street-address",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "address.main.city",
+      "label": "$.form.city",
+      "placeholder": "London",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "address.main.zip",
+      "label": "$.form.zip",
+      "placeholder": "Blvd Ave. 12",
+      "autocomplete": "postal-code",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "validation": [
+        {
+          "pattern": "",
+          "msg": "$.message.invalid_zip"
+        }
+      ],
+      "value": ""
+    },
+    {
+      "name": "address.main.state",
+      "type": "select",
+      "label": "$.form.state",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "restOptions": {
+        "url": "/api/enumerations?q={\"type\":{\"$eq\":\"country_code\"},\"published\":{\"$eq\":1}}&limit=100",
+        "label": "label",
+        "value": "value"
+      },
+      "value": ""
+    }
+  ]
+}

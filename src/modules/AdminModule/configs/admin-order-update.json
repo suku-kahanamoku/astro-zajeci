@@ -1,0 +1,30 @@
+{
+  "syscode": "admin-order-update",
+  "restUrl": "/api/admin/order/${route.meta.id}",
+  "patchUrl": "/api/admin/order/${route.meta.id}",
+  "method": "PATCH",
+  "modelType": "order",
+  "fields": [
+    {
+      "name": "user.email",
+      "label": "$.form.user_email"
+    },
+    {
+      "name": "user.phone",
+      "label": "$.form.user_phone"
+    },
+    {
+      "name": "shipping.type",
+      "label": "$.form.shipping_type"
+    },
+    {
+      "name": "payment.type",
+      "label": "$.form.payment_type"
+    },
+    {
+      "name": "total_price",
+      "type": "number",
+      "label": "$.form.total_price"
+    }
+  ]
+}

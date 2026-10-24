@@ -1,0 +1,53 @@
+{
+  "syscode": "admin-shipping-list",
+  "restUrl": "/api/enumerations?q={\"type\":{\"$eq\":\"shipping\"}}",
+  "deleteUrl": "/api/admin/enum/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${label}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "label",
+      "type": "text",
+      "label": "$.form.name",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "data.price",
+      "type": "number",
+      "label": "$.form.price",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        { "value": 1, "label": "$.form.yes" },
+        { "value": 0, "label": "$.form.no" }
+      ],
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        { "value": 1, "label": "$.form.yes" },
+        { "value": 0, "label": "$.form.no" }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "source": "nuxt/zajeci",
+  "target": "astro/astro-zajeci",
+  "pages": [
+    {
+      "source": "pages/gdpr.vue",
+      "route": "/gdpr"
+    },
+    {
+      "source": "pages/forgot-password.vue",
+      "route": "/forgot-password"
+    },
+    {
+      "source": "pages/signup.vue",
+      "route": "/signup"
+    },
+    {
+      "source": "pages/gallery.vue",
+      "route": "/gallery"
+    },
+    {
+      "source": "pages/terms-conditions.vue",
+      "route": "/terms-conditions"
+    },
+    {
+      "source": "pages/reset-password.vue",
+      "route": "/reset-password"
+    },
+    {
+      "source": "pages/login.vue",
+      "route": "/login"
+    },
+    {
+      "source": "pages/index.vue",
+      "route": "/"
+    },
+    {
+      "source": "pages/admin/index.vue",
+      "route": "/admin"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/profile.vue",
+      "route": "/admin/profile"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/index.vue",
+      "route": "/admin"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/address/[id].vue",
+      "route": "/admin/address/:id"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/address/create.vue",
+      "route": "/admin/address/create"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/address/index.vue",
+      "route": "/admin/address"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/user/[id].vue",
+      "route": "/admin/user/:id"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/user/index.vue",
+      "route": "/admin/user"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/role/[id].vue",
+      "route": "/admin/role/:id"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/role/create.vue",
+      "route": "/admin/role/create"
+    },
+    {
+      "source": "modules/user-module/runtime/pages/admin/role/index.vue",
+      "route": "/admin/role"
+    },
+    {
+      "source": "modules/eshop-module/runtime/pages/cashdesk-completed.vue",
+      "route": "/cashdesk-completed"
+    },
+    {
+      "source": "modules/eshop-module/runtime/pages/cashdesk.vue",
+      "route": "/cashdesk"
+    },
+    {
+      "source": "modules/eshop-module/runtime/pages/admin/order/[id].vue",
+      "route": "/admin/order/:id"
+    },
+    {
+      "source": "modules/eshop-module/runtime/pages/admin/order/index.vue",
+      "route": "/admin/order"
+    },
+    {
+      "source": "modules/eshop-module/runtime/pages/admin/invoice/[id].vue",
+      "route": "/admin/invoice/:id"
+    },
+    {
+      "source": "modules/eshop-module/runtime/pages/admin/invoice/create.vue",
+      "route": "/admin/invoice/create"
+    },
+    {
+      "source": "modules/eshop-module/runtime/pages/admin/invoice/index.vue",
+      "route": "/admin/invoice"
+    },
+    {
+      "source": "modules/category-module/runtime/pages/admin/category/[id].vue",
+      "route": "/admin/category/:id"
+    },
+    {
+      "source": "modules/category-module/runtime/pages/admin/category/create.vue",
+      "route": "/admin/category/create"
+    },
+    {
+      "source": "modules/category-module/runtime/pages/admin/category/index.vue",
+      "route": "/admin/category"
+    },
+    {
+      "source": "modules/wine-module/runtime/pages/wine/[id].vue",
+      "route": "/wine/:id"
+    },
+    {
+      "source": "modules/wine-module/runtime/pages/wine/index.vue",
+      "route": "/wine"
+    },
+    {
+      "source": "modules/wine-module/runtime/pages/admin/wine/[id].vue",
+      "route": "/admin/wine/:id"
+    },
+    {
+      "source": "modules/wine-module/runtime/pages/admin/wine/create.vue",
+      "route": "/admin/wine/create"
+    },
+    {
+      "source": "modules/wine-module/runtime/pages/admin/wine/index.vue",
+      "route": "/admin/wine"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/payment/[id].vue",
+      "route": "/admin/payment/:id"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/payment/create.vue",
+      "route": "/admin/payment/create"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/payment/index.vue",
+      "route": "/admin/payment"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/taste/[id].vue",
+      "route": "/admin/taste/:id"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/taste/create.vue",
+      "route": "/admin/taste/create"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/taste/index.vue",
+      "route": "/admin/taste"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/enum/[id].vue",
+      "route": "/admin/enum/:id"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/enum/create.vue",
+      "route": "/admin/enum/create"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/enum/index.vue",
+      "route": "/admin/enum"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/shipping/[id].vue",
+      "route": "/admin/shipping/:id"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/shipping/create.vue",
+      "route": "/admin/shipping/create"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/shipping/index.vue",
+      "route": "/admin/shipping"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/vat-rate/[id].vue",
+      "route": "/admin/vat-rate/:id"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/vat-rate/create.vue",
+      "route": "/admin/vat-rate/create"
+    },
+    {
+      "source": "modules/enum-module/runtime/pages/admin/vat-rate/index.vue",
+      "route": "/admin/vat-rate"
+    },
+    {
+      "source": "modules/text-module/runtime/pages/admin/text/[id].vue",
+      "route": "/admin/text/:id"
+    },
+    {
+      "source": "modules/text-module/runtime/pages/admin/text/create.vue",
+      "route": "/admin/text/create"
+    },
+    {
+      "source": "modules/text-module/runtime/pages/admin/text/index.vue",
+      "route": "/admin/text"
+    },
+    {
+      "source": "modules/mail-module/runtime/pages/admin/mail/index.vue",
+      "route": "/admin/mail"
+    }
+  ]
+}

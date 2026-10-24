@@ -1,0 +1,106 @@
+{
+  "syscode": "admin-user-list",
+  "restUrl": "/api/admin/user",
+  "deleteUrl": "/api/admin/user/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${email}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "email",
+      "type": "text",
+      "label": "$.user.email",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "first_name",
+      "type": "text",
+      "label": "$.user.name",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "last_name",
+      "type": "text",
+      "label": "$.user.surname",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "role",
+      "type": "text",
+      "label": "$.user.role",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "phone",
+      "type": "text",
+      "label": "$.user.phone",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "label": "$.user.status",
+      "options": [
+        {
+          "value": "active",
+          "label": "$.form.active"
+        },
+        {
+          "value": "inactive",
+          "label": "$.user.status_inactive"
+        },
+        {
+          "value": "banned",
+          "label": "$.user.status_banned"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

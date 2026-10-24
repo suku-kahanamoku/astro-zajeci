@@ -1,0 +1,69 @@
+{
+  "syscode": "profile",
+  "patchUrl": "/api/admin/user/${item.id}",
+  "method": "PATCH",
+  "fields": [
+    {
+      "name": "email",
+      "type": "email",
+      "label": "$.form.email",
+      "placeholder": "john@doe.com",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "role_id",
+      "type": "select",
+      "label": "$.form.role",
+      "required": true,
+      "size": "lg",
+      "restOptions": {
+        "url": "/api/admin/role",
+        "label": "label",
+        "value": "id"
+      },
+      "value": null
+    },
+    {
+      "name": "first_name",
+      "type": "text",
+      "label": "$.form.given_name",
+      "placeholder": "John",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "last_name",
+      "type": "text",
+      "label": "$.form.surname",
+      "placeholder": "Doe",
+      "required": true,
+      "clearable": true,
+      "size": "lg",
+      "value": ""
+    },
+    {
+      "name": "password",
+      "type": "password",
+      "label": "$.form.old_password",
+      "clearable": true,
+      "minLength": 8,
+      "size": "lg",
+      "autocomplete": "new-password",
+      "value": ""
+    },
+    {
+      "name": "new_password",
+      "type": "password",
+      "label": "$.form.new_password",
+      "clearable": true,
+      "minLength": 8,
+      "size": "lg",
+      "value": ""
+    }
+  ]
+}

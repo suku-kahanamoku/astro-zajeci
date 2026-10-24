@@ -1,0 +1,77 @@
+{
+  "syscode": "admin-address-create",
+  "postUrl": "/api/admin/address",
+  "method": "POST",
+  "fields": [
+    {
+      "name": "user_id",
+      "type": "select",
+      "label": "$.user.email",
+      "required": true,
+      "restOptions": {
+        "url": "/api/admin/user?limit=100",
+        "label": "email",
+        "value": "id"
+      }
+    },
+    {
+      "name": "type",
+      "type": "select",
+      "label": "$.address.type",
+      "options": [
+        {
+          "label": "$.address.billing",
+          "value": "billing"
+        },
+        {
+          "label": "$.address.shipping",
+          "value": "shipping"
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "label": "$.address.name",
+      "placeholder": "$.address.placeholder.name"
+    },
+    {
+      "name": "company",
+      "type": "text",
+      "label": "$.address.company",
+      "placeholder": "$.address.placeholder.company"
+    },
+    {
+      "name": "street",
+      "type": "text",
+      "label": "$.address.street",
+      "placeholder": "$.address.placeholder.street",
+      "required": true
+    },
+    {
+      "name": "city",
+      "type": "text",
+      "label": "$.address.city",
+      "placeholder": "$.address.placeholder.city",
+      "required": true
+    },
+    {
+      "name": "zip",
+      "type": "text",
+      "label": "$.address.zip",
+      "placeholder": "$.address.placeholder.zip",
+      "required": true
+    },
+    {
+      "name": "country",
+      "type": "text",
+      "label": "$.address.country",
+      "placeholder": "$.address.placeholder.country"
+    },
+    {
+      "name": "is_default",
+      "type": "checkbox",
+      "label": "$.address.is_default"
+    }
+  ]
+}

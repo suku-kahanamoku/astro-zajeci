@@ -1,0 +1,100 @@
+{
+  "syscode": "admin-enum-list",
+  "restUrl": "/api/admin/enum",
+  "deleteUrl": "/api/admin/enum/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${syscode}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "syscode",
+      "type": "text",
+      "label": "$.enum.form.syscode",
+      "placeholder": "$.enum.placeholder.syscode",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "type",
+      "type": "text",
+      "label": "$.enum.form.type",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "label",
+      "type": "text",
+      "label": "$.enum.form.label",
+      "placeholder": "$.enum.placeholder.label",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "value",
+      "type": "text",
+      "label": "$.enum.form.value",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "position",
+      "type": "number",
+      "label": "$.enum.form.position",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "published",
+      "type": "select",
+      "label": "$.form.published",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "syscode": "admin-role-list",
+  "restUrl": "/api/admin/role",
+  "deleteUrl": "/api/admin/role/${item.id}",
+  "pagination": {
+    "limit": 20
+  },
+  "factory": {
+    "url": "${name}--$${id}"
+  },
+  "fields": [
+    {
+      "name": "name",
+      "label": "$.role.name",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "label",
+      "label": "$.role.label",
+      "operator": {
+        "value": "$regex",
+        "enabled": true
+      },
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "position",
+      "type": "number",
+      "label": "$.role.position",
+      "size": "md",
+      "clearable": true
+    },
+    {
+      "name": "deleted",
+      "type": "select",
+      "label": "$.form.deleted",
+      "options": [
+        {
+          "value": 1,
+          "label": "$.form.yes"
+        },
+        {
+          "value": 0,
+          "label": "$.form.no"
+        }
+      ],
+      "size": "md",
+      "clearable": true
+    }
+  ]
+}

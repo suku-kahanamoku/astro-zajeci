@@ -1,0 +1,11 @@
+{
+  "syscode": "admin-mail-list",
+  "restUrl": "/api/admin/mail",
+  "fields": [
+    {
+      "name": "template",
+      "type": "text",
+      "label": "$.mail.template"
+    }
+  ]
+}
