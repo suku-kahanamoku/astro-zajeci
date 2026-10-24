@@ -8,9 +8,8 @@ Node.js >= 22.12, npm:
 
 ```sh
 npm ci
-cp .env.example .env
-# Vyplnit soukromé hodnoty z prostředí původního webu.
-# SESSION_SECRET vygenerovat: openssl rand -base64 48
+cp ../../nuxt/zajeci/.env .env
+# Případné další hodnoty zůstávají ve stávajícím prostředí Netlify.
 npm run dev
 ```
 
@@ -26,20 +25,22 @@ Build nepřistupuje k backendu. Data a katalog se načítají za běhu na server
 
 ## Prostředí
 
-| Proměnná                                                                 | Účel                                                                                            |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
-| `PHP_API_BASE_URL`                                                       | Stejný php-core API origin a prefix jako v původním Nuxtu                                       |
-| `INTERNAL_API_KEY`                                                       | Soukromý klíč shodný s php-core; pouze server                                                   |
-| `SESSION_SECRET`                                                         | Alespoň 32 znaků, šifrování HttpOnly relace a OAuth state                                       |
-| `FRONTEND_HOST`                                                          | Důvěryhodný hostname pro `X-Forwarded-Host` a PHP tenant; výchozí `https://www.vinozezajeci.cz` |
-| `NUXT_MAILING_FROM`, `NUXT_MAILING_FROM_NAME`, `NUXT_MAILING_FROM_PHONE` | Zachované nastavení e-mailů                                                                     |
-| `PUBLIC_GTAG_ID`                                                         | Google Analytics ID; podporuje se i původní `NUXT_PUBLIC_GTAG_ID`                               |
-| `NUXT_OAUTH_GOOGLE_CLIENT_ID`, `NUXT_OAUTH_GOOGLE_CLIENT_SECRET`         | Google OAuth                                                                                    |
-| `NUXT_OAUTH_LINKEDIN_CLIENT_ID`, `NUXT_OAUTH_LINKEDIN_CLIENT_SECRET`     | LinkedIn OAuth                                                                                  |
-| `OAUTH_CALLBACK_ORIGIN`                                                  | Volitelný origin callbacků; výchozí origin příchozího požadavku                                 |
-| `NUXT_OAUTH_GOOGLE_REDIRECT_URL`, `NUXT_OAUTH_LINKEDIN_REDIRECT_URL`     | Volitelná plná callback URL původního nastavení                                                 |
+| Proměnná                                                                 | Účel                                                                                                                                                     |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PHP_API_BASE_URL`                                                       | Stejný php-core API origin a prefix jako v původním Nuxtu                                                                                                |
+| `INTERNAL_API_KEY`                                                       | Soukromý klíč shodný s php-core; pouze server                                                                                                            |
+| `NUXT_SESSION_PASSWORD`                                                  | Původní volitelný klíč relace, alespoň 32 znaků. Bez něj se oddělený klíč odvodí přes HMAC ze stávajícího `INTERNAL_API_KEY`; nová proměnná není potřeba |
+| `FRONTEND_HOST`                                                          | Původní důvěryhodný hostname pro `X-Forwarded-Host` a PHP tenant; výchozí `https://vinozezajeci.cz`                                                      |
+| `NUXT_MAILING_FROM`, `NUXT_MAILING_FROM_NAME`, `NUXT_MAILING_FROM_PHONE` | Zachované nastavení e-mailů                                                                                                                              |
+| `NUXT_PUBLIC_GTAG_ID`                                                    | Původní Google Analytics ID; podporuje se i alias `PUBLIC_GTAG_ID`                                                                                       |
+| `NUXT_OAUTH_GOOGLE_CLIENT_ID`, `NUXT_OAUTH_GOOGLE_CLIENT_SECRET`         | Google OAuth                                                                                                                                             |
+| `NUXT_OAUTH_LINKEDIN_CLIENT_ID`, `NUXT_OAUTH_LINKEDIN_CLIENT_SECRET`     | LinkedIn OAuth                                                                                                                                           |
+| `OAUTH_CALLBACK_ORIGIN`                                                  | Volitelný origin callbacků; výchozí origin příchozího požadavku                                                                                          |
+| `NUXT_OAUTH_GOOGLE_REDIRECT_URL`, `NUXT_OAUTH_LINKEDIN_REDIRECT_URL`     | Volitelná plná callback URL původního nastavení                                                                                                          |
 
-OAuth callbacky jsou `/api/login/google` a `/api/login/linkedin`; pro nasazení zaregistrovat jejich URL na `https://www.vinozezajeci.cz`. ID token ověřuje podpis, issuer, audience, expiraci a nonce přes `jose`; state je šifrovaný v krátkodobé HttpOnly cookie. Google používá i PKCE. Klíč, klientská tajemství a Bearer se nevracejí do HTML ani browser API. Staré Nuxt přihlašovací cookies se nepřebírají, uživatelé se jednou přihlásí znovu.
+Stávající názvy i hodnoty `.env` a proměnných Netlify se zachovávají. Podporované jsou i Nuxt runtime přepisy `NUXT_PHP_API_BASE_URL`, `NUXT_INTERNAL_API_KEY`, `NUXT_FRONTEND_HOST` a `NUXT_PHP_FILE_ROOT`; mají přednost před neprefixovanými hodnotami stejně jako v Nuxtu. Hodnoty za běhu mají přednost před buildem. `SESSION_SECRET` zůstává pouze volitelným aliasem pro již existující Astro nastavení. Původní sdílené výchozí heslo z auth modulu se nepřebírá.
+
+OAuth callbacky zůstávají `/api/login/google` a `/api/login/linkedin` a přebírají původní `NUXT_OAUTH_*` konfiguraci včetně explicitních redirect URL. ID token ověřuje podpis, issuer, audience, expiraci a nonce přes `jose`; state je šifrovaný v krátkodobé HttpOnly cookie. Google používá i PKCE. Klíč, klientská tajemství a Bearer se nevracejí do HTML ani browser API. Staré Nuxt přihlašovací cookies se nepřebírají, uživatelé se jednou přihlásí znovu.
 
 `PHP_FILE_ROOT` už frontend nepotřebuje: stejně jako poslední Nuxt proxy soubory načítá přes PHP `/files/content` nebo `/files/temp`, kde se vyhodnocují oprávnění a viditelnost.
 
@@ -92,4 +93,12 @@ Nasazení, skutečné přihlášení u poskytovatelů OAuth, doručení e-mailu 
 
 Přenesené soukromé `.env` původního Nuxtu míří na vzdálený backend a nemá `INTERNAL_API_KEY`. Čtení jediného veřejného produktu v této konfiguraci vrátilo HTTP 401 `Internal authentication required.`. Čtení stejného veřejného katalogu na místním `php/php-core` s jeho místním klíčem vrátilo HTTP 500. Žádné skutečné objednávky, e-maily ani uploady nebyly provedené. Pro živé integrační ověření je potřeba správně nakonfigurované prostředí PHP a odpovídající soukromý klíč. Lokální klíč nebyl posílán na vzdálený backend.
 
-Node SSR ověřuje důvěryhodné hostname přes `security.allowedDomains`. Nastavená je ostrá doména a lokální adresy na portu 4321. Při použití další dočasné/staging domény ji přidat do této explicitní konfigurace; canonical zůstává ostrý.
+Tato lokální kontrola nepopisuje proměnné nastavené přímo na stávajícím Netlify webu; ty nebyly čtené ani měněné.
+
+## Výměna zdrojových kódů na stávajícím Netlify webu
+
+Ponechat dosavadní proměnné prostředí i jejich hodnoty. `netlify.toml` v nových zdrojích používá standardní `npm run build` a publish adresář `dist`; Netlify automaticky nastavuje `NETLIFY=true`, podle kterého se zvolí SSR adaptér. Neměnit build na statické `generate`. Pokud je v Netlify pevně nastavený base/package directory na `nuxt/zajeci`, musí ukazovat na nový kořen `astro/astro-zajeci`; tento údaj závisí na uspořádání připojeného repozitáře.
+
+Soubory z původního `public/` mají stejné bajty i veřejné URL od kořene webu. Frontendové API i OAuth callbacky zůstávají pod stejným originem. `FRONTEND_HOST` dál vybírá původní PHP tenant; canonical, sitemap a SEO mají vždy `https://www.vinozezajeci.cz/`.
+
+SSR ověřuje důvěryhodné hostname přes `security.allowedDomains`. Vedle ostré domény a lokálních adres na portu 4321 přebírá nakonfigurovaný `FRONTEND_HOST` a Netlify systémové `URL`, `DEPLOY_URL`, `DEPLOY_PRIME_URL`, aby fungovala stávající Netlify adresa i preview bez dalších proměnných. Tyto adresy nemění canonical.

@@ -6,9 +6,8 @@ export function headers(token?: string) {
   if (!key) throw new HttpError(503, "Chybí konfigurace připojení k backendu.");
   return {
     "X-Internal-Key": key,
-    "X-Forwarded-Host": new URL(
-      env("FRONTEND_HOST", "https://www.vinozezajeci.cz"),
-    ).hostname,
+    "X-Forwarded-Host": new URL(env("FRONTEND_HOST", "https://vinozezajeci.cz"))
+      .hostname,
     ...(token ? { Authorization: "Bearer " + token } : {}),
   };
 }

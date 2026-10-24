@@ -34,7 +34,7 @@ const socialImageAlt = rawPath.startsWith("/wine/")
   ? title
   : "Vinice Vinařství Nová Hora v Zaječí";
 const alternatePath = canonicalPath.replace(/^\/en(?=\/|$)/, "") || "/";
-const analytics = env("PUBLIC_GTAG_ID", env("NUXT_PUBLIC_GTAG_ID"));
+const analytics = env("NUXT_PUBLIC_GTAG_ID");
 const structured = schema || {
   "@context": "https://schema.org",
   "@type": "Winery",

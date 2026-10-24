@@ -4,6 +4,8 @@ import netlify from "@astrojs/netlify";
 import pwa from "./integrations/pwa.mjs";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
+import { loadEnv } from "vite";
+import { allowedDomains } from "./integrations/hosts.mjs";
 export default defineConfig({
   site: "https://www.vinozezajeci.cz",
   output: "server",
@@ -15,15 +17,9 @@ export default defineConfig({
   trailingSlash: "never",
   server: { port: 4321, host: "127.0.0.1" },
   security: {
-    allowedDomains: [
-      { hostname: "www.vinozezajeci.cz", protocol: "https" },
-      { hostname: "vinozezajeci.cz", protocol: "https" },
-      ...["localhost", "127.0.0.1", "127.0.0.3"].map((hostname) => ({
-        hostname,
-        protocol: "http",
-        port: "4321",
-      })),
-    ],
+    allowedDomains: allowedDomains(
+      loadEnv(process.env.NODE_ENV || "production", process.cwd(), ""),
+    ),
   },
   devToolbar: { enabled: false },
   vite: {

@@ -1,15 +1,13 @@
-import { createHash } from "node:crypto";
 import { EncryptJWT, jwtDecrypt } from "jose";
 import type { APIContext, AstroCookies } from "astro";
 import type { Session, RecordData } from "../modules/CoreModule/types";
 import { env } from "./env";
 import { HttpError } from "./errors";
 import { php } from "./php";
+import { sessionKey } from "./config";
 const cookie = "zajeci-session";
 function key() {
-  const secret = env("SESSION_SECRET");
-  if (secret.length < 32) throw new HttpError(503, "Chybí konfigurace relace.");
-  return createHash("sha256").update(secret).digest();
+  return sessionKey(env);
 }
 export async function sealOAuth(value: RecordData) {
   return new EncryptJWT(value)
